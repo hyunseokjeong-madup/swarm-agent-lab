@@ -9,9 +9,11 @@
 | 1 | 멀티터치 어트리뷰션(5모델: first/last/linear/time-decay/position) | `marketing/pm/attribution_mta.py` | 수동검산 일치 |
 | 2 | 예산 최적화(한계수익 균등, 체감곡선 그리디) | `marketing/pm/budget_optimizer.py` | 배분 산술 검증 |
 | 3 | A/B 표본수·검정력(역정규 Acklam) | `marketing/pm/sample_size.py` | z=1.96/0.8416, n 수동검산 일치 |
+| 4 | 코호트 리텐션 + LTV 곡선 | `marketing/pm/cohort.py` | 리텐션·LTV 수동검산 일치 |
+| 5 | 시계열 이상탐지(추세·요일·잔차 MAD) | `marketing/pm/anomaly_ts.py` | 1/14 급락 포착 |
 
 ## ⬜ 진행/큐 (각 30분급)
-4 코호트 리텐션·LTV곡선 · 5 시계열 이상탐지(STL유사) ·
+6 미디어믹스 회귀(MMM 간이) ·
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

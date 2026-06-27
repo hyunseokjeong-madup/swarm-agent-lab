@@ -48,6 +48,8 @@ CHECKS = [
     ("sc: mta",                       ["python", "marketing/pm/attribution_mta.py", "marketing/sample_paths.csv"], "MULTI-TOUCH"),
     ("sc: budget_optimizer",          ["python", "marketing/pm/budget_optimizer.py", "marketing/sample_campaign.csv", "--by", "creative"], "BUDGET OPTIMIZER"),
     ("sc: sample_size",               ["python", "marketing/pm/sample_size.py", "--baseline", "0.04", "--mde", "0.2"], "SAMPLE SIZE"),
+    ("sc: cohort",                    ["python", "marketing/pm/cohort.py", "marketing/sample_cohorts.csv"], "COHORT RETENTION"),
+    ("sc: anomaly_ts",                ["python", "marketing/pm/anomaly_ts.py", "marketing/sample_timeseries.csv", "--metric", "revenue"], "TS ANOMALY"),
 ]
 
 def run():

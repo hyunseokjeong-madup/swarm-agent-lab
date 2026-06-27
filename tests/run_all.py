@@ -51,6 +51,8 @@ CHECKS = [
     ("sc: cohort",                    ["python", "marketing/pm/cohort.py", "marketing/sample_cohorts.csv"], "COHORT RETENTION"),
     ("sc: anomaly_ts",                ["python", "marketing/pm/anomaly_ts.py", "marketing/sample_timeseries.csv", "--metric", "revenue"], "TS ANOMALY"),
     ("sc: mmm",                       ["python", "marketing/pm/mmm.py", "marketing/sample_mmm.csv", "--channels", "meta,google,naver"], "MMM (OLS"),
+    ("sc: geo_lift",                  ["python", "marketing/pm/geo_lift.py", "marketing/sample_geo.csv"], "GEO INCREMENTALITY"),
+    ("sc: rfm",                       ["python", "marketing/pm/rfm.py", "marketing/sample_tx.csv", "--asof", "2026-01-31"], "RFM"),
 ]
 
 def run():

@@ -1,0 +1,5 @@
+geo,group,pre,post
+G1,test,500,750
+G2,test,500,750
+G3,control,500,550
+G4,control,500,550

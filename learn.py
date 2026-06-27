@@ -62,7 +62,8 @@ def main():
         for cmd in (["git", "add", "-A"],
                     ["git", "commit", "-m", msg],
                     ["git", "push"]):
-            r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True)
+            r = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True,
+                                encoding="utf-8", errors="replace")
             print("$", " ".join(cmd), "->", (r.stdout or r.stderr).strip().splitlines()[-1] if (r.stdout or r.stderr).strip() else "ok")
 
 if __name__ == "__main__":

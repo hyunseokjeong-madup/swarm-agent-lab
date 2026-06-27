@@ -59,8 +59,12 @@
 | 40 | 피어슨 상관(시너지/잠식) | `marketing/pm/correlation.py` | r=+0.979 검산 |
 | 41 | 계정 헬스 스코어(효율·분산·품질) | `marketing/pm/account_health.py` | 93/100 검산 |
 
+| 42 | 주간 롤업(ISO주·WoW) | `marketing/pm/weekly_rollup.py` | WoW -28.4% 검산 |
+| 43 | IQR 이상치(Tukey 울타리) | `marketing/pm/outlier_iqr.py` | C6 적발·Q1/Q3 검산 |
+*(레포 정리: 19 샘플 → `marketing/samples/`)*
+
 ## ⬜ 진행/큐 (각 30분급)
-42 LTV 세그 예산 · 43 멀티 KPI 대시 · 44 가중 CPA · … (→200)
+44 멀티 KPI 대시 · 45 가중 CPA 분해 · 46 코호트 LTV 곡선 비교 · … (→200)
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

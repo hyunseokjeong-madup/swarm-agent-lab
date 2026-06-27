@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 58개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 60개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -40,6 +40,7 @@
 | `mmm.py` | 미디어믹스 간이 회귀(MMM) — OLS로 채널별 매출 기여 계수 추정. |
 | `naming_check.py` | 네이밍 규칙 검증. 소재/캠페인명이 {campaign}_{angle}_{format}_{hook}_v## 규칙을 따르는지 점검. |
 | `new_vs_returning.py` | 신규 vs 재구매 분해 — 거래 데이터에서 각 거래를 첫구매(신규)/재구매로 판정해 매출·주문 분해. |
+| `outlier_iqr.py` | IQR 이상치 탐지 — Tukey 울타리(Q1−1.5·IQR, Q3+1.5·IQR) 밖 값을 이상치로 표시. |
 | `pacing.py` | 예산 페이싱 알림 (budget pacing). 소진 추세 → 예상 소진·일일 목표·과/저소진 경보. |
 | `pacing_optimizer.py` | 페이싱 최적화 — 잔여 예산을 남은 일자에 가중치(요일/시즌)대로 재분배해 일별 목표 산출. |
 | `pareto.py` | 파레토(80/20) 분석 — 상위 몇 %의 항목이 가치의 80%를 차지하는지. 누적 기여 산출(정확). |
@@ -61,4 +62,5 @@
 | `target_setter.py` | 목표 역산(goal-seek) — 목표 ROAS/CPA 달성에 필요한 입력값 역산. |
 | `tools_index.py` | 도구 인덱스 생성기 — marketing/pm/*.py 의 모듈 도크스트링 첫 줄을 모아 TOOLS.md 자동 생성. |
 | `waste.py` | 예산 낭비 탐지. ROAS가 기준 미만인데 지출이 큰 엔티티 → 절감 후보. |
+| `weekly_rollup.py` | 주간 롤업 — 일별 CSV를 ISO 주 단위로 집계하고 WoW(주간대비) 증감 산출. 가중지표 정확. |
 | `winback_priority.py` | 윈백 우선순위 — 과거가치(monetary) × 이탈위험(recency/기대주기)으로 재유치 대상 순위화. |

@@ -85,6 +85,8 @@ CHECKS = [
     ("sc: target_setter",             ["python", "marketing/pm/target_setter.py", "--target-roas", "3", "--aov", "50000", "--cvr", "0.05"], "TARGET SETTER"),
     ("sc: correlation",               ["python", "marketing/pm/correlation.py", "marketing/samples/sample_campaign.csv", "--x", "spend", "--y", "conversions"], "CORRELATION"),
     ("sc: account_health",            ["python", "marketing/pm/account_health.py", "marketing/samples/sample_campaign.csv", "--target-roas", "2.5"], "ACCOUNT HEALTH"),
+    ("sc: weekly_rollup",             ["python", "marketing/pm/weekly_rollup.py", "marketing/samples/sample_timeseries.csv"], "WEEKLY ROLLUP"),
+    ("sc: outlier_iqr",               ["python", "marketing/pm/outlier_iqr.py", "marketing/samples/sample_metrics.csv", "--col", "cpa"], "IQR OUTLIERS"),
 ]
 
 def run():

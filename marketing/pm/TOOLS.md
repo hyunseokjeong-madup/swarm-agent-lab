@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 48개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 50개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -25,6 +25,7 @@
 | `funnel.py` | 퍼널 드롭오프 분석 (impr→click→conv). 가장 약한 단계 식별. CSV 합계 또는 직접 인자. |
 | `geo_lift.py` | Geo 증분성(geo holdout) — 이중차분(difference-in-differences)으로 광고 순증분 추정. |
 | `guardrails.py` | 목표 CPA/ROAS 가드레일 체커. 엔티티별로 목표 위반을 경보. |
+| `hhi.py` | 집중도 HHI — Herfindahl-Hirschman 지수(점유율 제곱합)로 채널/상품 집중도 측정. |
 | `incrementality_ab.py` | 증분성(홀드아웃 RCT) — 노출군 vs PSA/홀드아웃 대조군의 전환율 차이로 순증분 추정. |
 | `kpi_decomp.py` | KPI 변동 요인분해 — CPA = CPC / CVR 의 기간 변화(A→B)를 CPC효과·CVR효과로 로그분해. |
 | `ltv_forecast.py` | LTV 예측 — 관측 리텐션에서 기하감쇠(retention_n = r1 * d^(n-1)) 추정 후 horizon까지 외삽, |
@@ -36,6 +37,7 @@
 | `new_vs_returning.py` | 신규 vs 재구매 분해 — 거래 데이터에서 각 거래를 첫구매(신규)/재구매로 판정해 매출·주문 분해. |
 | `pacing.py` | 예산 페이싱 알림 (budget pacing). 소진 추세 → 예상 소진·일일 목표·과/저소진 경보. |
 | `pacing_optimizer.py` | 페이싱 최적화 — 잔여 예산을 남은 일자에 가중치(요일/시즌)대로 재분배해 일별 목표 산출. |
+| `pareto.py` | 파레토(80/20) 분석 — 상위 몇 %의 항목이 가치의 80%를 차지하는지. 누적 기여 산출(정확). |
 | `poas.py` | POAS — 마진 반영 수익성 ROAS. POAS=매출×마진/광고비. 손익분기 마진도 계산. |
 | `price_elasticity.py` | 가격탄력성 추정 — log(수량) = a + e·log(가격)의 OLS 기울기 e가 탄력성. |
 | `price_optimizer.py` | 가격 최적화 — 일정탄력성 수요(q=k·p^e)에서 이익 최대 가격의 폐형식 해. |

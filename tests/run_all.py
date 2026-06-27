@@ -91,6 +91,8 @@ CHECKS = [
     ("sc: ramp_plan",                 ["python", "marketing/pm/ramp_plan.py", "--current-daily", "1000000", "--target-daily", "3000000"], "BUDGET RAMP"),
     ("sc: brand_split",               ["python", "marketing/pm/brand_split.py", "marketing/samples/sample_searchterms.csv", "--brand", "브랜드명"], "BRAND vs NON-BRAND"),
     ("sc: marginal_cpa",              ["python", "marketing/pm/marginal_cpa.py", "marketing/samples/sample_marginal.csv"], "MARGINAL CPA"),
+    ("sc: reach_planner",             ["python", "marketing/pm/reach_planner.py", "--budget", "10000000", "--cpm", "5000", "--audience", "1000000"], "REACH PLANNER"),
+    ("sc: roas_gap",                  ["python", "marketing/pm/roas_gap.py", "marketing/samples/sample_campaign.csv", "--target", "3.0", "--by", "creative"], "ROAS GAP"),
 ]
 
 def run():

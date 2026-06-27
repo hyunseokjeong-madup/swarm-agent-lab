@@ -69,8 +69,11 @@
 | 46 | 브랜드 vs 논브랜드 분리 | `marketing/pm/brand_split.py` | 세그 집계 검산 |
 | 47 | 한계 CPA(증액 효율 체감) | `marketing/pm/marginal_cpa.py` | meta20k/google8.3k/naver∞ |
 
+| 48 | 도달 플래너(예산·CPM·모수) | `marketing/pm/reach_planner.py` | 도달864k/빈도2.31 검산 |
+| 49 | ROAS 목표 갭(매출 부족분) | `marketing/pm/roas_gap.py` | 총부족 900k 검산 |
+
 ## ⬜ 진행/큐 (각 30분급)
-48 멀티 KPI 대시 · 49 코호트 LTV 비교 · 50 첫구매 경로 · … (→200)
+50 멀티 KPI 대시 · 51 코호트 LTV 비교 · 52 입찰 경쟁 분석 · … (→200)
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

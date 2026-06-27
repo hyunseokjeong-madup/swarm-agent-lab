@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 64개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 66개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -51,9 +51,11 @@
 | `price_optimizer.py` | 가격 최적화 — 일정탄력성 수요(q=k·p^e)에서 이익 최대 가격의 폐형식 해. |
 | `promo_roi.py` | 프로모션 ROI — 할인 판촉의 증분 이익을 마진 잠식까지 반영해 계산. |
 | `ramp_plan.py` | 예산 램프 플랜 — 학습 리셋 없이 일일 최대 증액률(기본 20%)로 현재→목표 일예산 점진 증액 계획. |
+| `reach_planner.py` | 도달 플래너 — 예산·CPM·모수에서 노출/도달/빈도 추정(미디어 플래닝). |
 | `reallocate.py` | 예산 재배분 제안 (budget reallocation). 저효율 → 고효율 채널로 예산 이동, 매출 증분 추정. |
 | `revenue_waterfall.py` | 매출 워터폴 — 두 기간 사이 총매출 변화를 채널별 기여로 분해(워터폴). 합=총변화(정확). |
 | `rfm.py` | RFM 세그멘테이션 — 거래 데이터로 Recency/Frequency/Monetary 5분위 점수화 후 세그먼트 분류. |
+| `roas_gap.py` | ROAS 목표 갭 — 채널별 실제 ROAS vs 목표. 미달 채널의 매출 부족분(목표달성 필요 추가매출) 집계. |
 | `rotation.py` | 소재 로테이션/리프레시. 노출 충분한데 CTR 낮은 소재 → 교체 후보. 신선도 우선순위 제시. |
 | `sample_size.py` | A/B 표본수 · 검정력 계산기 (two-proportion). |
 | `saturation_fit.py` | 반응곡선 적합(포화) — Hill/Michaelis 곡선 y = Vmax·x/(K+x) 을 (지출,전환) 점들에서 적합. |

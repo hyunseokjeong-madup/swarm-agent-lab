@@ -87,6 +87,8 @@ CHECKS = [
     ("sc: account_health",            ["python", "marketing/pm/account_health.py", "marketing/samples/sample_campaign.csv", "--target-roas", "2.5"], "ACCOUNT HEALTH"),
     ("sc: weekly_rollup",             ["python", "marketing/pm/weekly_rollup.py", "marketing/samples/sample_timeseries.csv"], "WEEKLY ROLLUP"),
     ("sc: outlier_iqr",               ["python", "marketing/pm/outlier_iqr.py", "marketing/samples/sample_metrics.csv", "--col", "cpa"], "IQR OUTLIERS"),
+    ("sc: srm_check",                 ["python", "marketing/pm/srm_check.py", "--a-n", "10000", "--b-n", "9000"], "SRM CHECK"),
+    ("sc: ramp_plan",                 ["python", "marketing/pm/ramp_plan.py", "--current-daily", "1000000", "--target-daily", "3000000"], "BUDGET RAMP"),
 ]
 
 def run():

@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 60개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 62개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -48,6 +48,7 @@
 | `price_elasticity.py` | 가격탄력성 추정 — log(수량) = a + e·log(가격)의 OLS 기울기 e가 탄력성. |
 | `price_optimizer.py` | 가격 최적화 — 일정탄력성 수요(q=k·p^e)에서 이익 최대 가격의 폐형식 해. |
 | `promo_roi.py` | 프로모션 ROI — 할인 판촉의 증분 이익을 마진 잠식까지 반영해 계산. |
+| `ramp_plan.py` | 예산 램프 플랜 — 학습 리셋 없이 일일 최대 증액률(기본 20%)로 현재→목표 일예산 점진 증액 계획. |
 | `reallocate.py` | 예산 재배분 제안 (budget reallocation). 저효율 → 고효율 채널로 예산 이동, 매출 증분 추정. |
 | `revenue_waterfall.py` | 매출 워터폴 — 두 기간 사이 총매출 변화를 채널별 기여로 분해(워터폴). 합=총변화(정확). |
 | `rfm.py` | RFM 세그멘테이션 — 거래 데이터로 Recency/Frequency/Monetary 5분위 점수화 후 세그먼트 분류. |
@@ -59,6 +60,7 @@
 | `seasonal_forecast.py` | 계절성 반영 예측 — 선형 추세 × 요일 계절지수로 향후 N일 예측. |
 | `seasonality.py` | 시즌성(요일) 지수. 요일 평균/전체 평균 = 지수(>1 강세, <1 약세). 입찰·예산 가중 가이드. |
 | `shapley_attribution.py` | Shapley 값 데이터기반 어트리뷰션 — 채널 조합(coalition) 기여를 Shapley 값으로 공정 배분. |
+| `srm_check.py` | SRM(표본비율 불일치) 점검 — A/B 트래픽 배분이 기대비율(기본 50/50)에서 유의하게 벗어났는지 카이제곱 검정. |
 | `target_setter.py` | 목표 역산(goal-seek) — 목표 ROAS/CPA 달성에 필요한 입력값 역산. |
 | `tools_index.py` | 도구 인덱스 생성기 — marketing/pm/*.py 의 모듈 도크스트링 첫 줄을 모아 TOOLS.md 자동 생성. |
 | `waste.py` | 예산 낭비 탐지. ROAS가 기준 미만인데 지출이 큰 엔티티 → 절감 후보. |

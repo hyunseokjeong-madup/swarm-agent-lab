@@ -50,6 +50,7 @@ CHECKS = [
     ("sc: sample_size",               ["python", "marketing/pm/sample_size.py", "--baseline", "0.04", "--mde", "0.2"], "SAMPLE SIZE"),
     ("sc: cohort",                    ["python", "marketing/pm/cohort.py", "marketing/sample_cohorts.csv"], "COHORT RETENTION"),
     ("sc: anomaly_ts",                ["python", "marketing/pm/anomaly_ts.py", "marketing/sample_timeseries.csv", "--metric", "revenue"], "TS ANOMALY"),
+    ("sc: mmm",                       ["python", "marketing/pm/mmm.py", "marketing/sample_mmm.csv", "--channels", "meta,google,naver"], "MMM (OLS"),
 ]
 
 def run():

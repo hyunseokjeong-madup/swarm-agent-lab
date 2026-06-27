@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 50개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 52개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -16,6 +16,7 @@
 | `churn_score.py` | 이탈위험 스코어 — 최근성 대비 기대 구매주기로 위험 산출. |
 | `cluster_terms.py` | 검색어 클러스터링 — 공통 토큰으로 검색어를 묶고 클러스터별 성과 집계. |
 | `cohort.py` | 코호트 리텐션 + LTV 곡선. |
+| `cohort_heatmap.py` | 코호트 리텐션 HTML 히트맵 — 코호트×기간 잔존율을 색조 셀로 시각화. 잔존율 계산 정확. |
 | `conversion_lag.py` | 전환 지연(conversion lag) 분포 — 클릭→전환 소요일 분포로 어트리뷰션 윈도우 적정성 진단. |
 | `dashboard.py` | HTML 대시보드 생성 — CSV를 받아 종합 카드 + 차원별 표(인라인 막대)를 단일 HTML로 출력. |
 | `data_quality.py` | 데이터 품질 검증기 — 마케팅 CSV의 정합성 위반을 다중 룰로 점검(보고 전 게이트). |
@@ -54,3 +55,4 @@
 | `shapley_attribution.py` | Shapley 값 데이터기반 어트리뷰션 — 채널 조합(coalition) 기여를 Shapley 값으로 공정 배분. |
 | `tools_index.py` | 도구 인덱스 생성기 — marketing/pm/*.py 의 모듈 도크스트링 첫 줄을 모아 TOOLS.md 자동 생성. |
 | `waste.py` | 예산 낭비 탐지. ROAS가 기준 미만인데 지출이 큰 엔티티 → 절감 후보. |
+| `winback_priority.py` | 윈백 우선순위 — 과거가치(monetary) × 이탈위험(recency/기대주기)으로 재유치 대상 순위화. |

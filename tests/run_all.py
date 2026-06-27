@@ -77,6 +77,8 @@ CHECKS = [
     ("sc: seasonal_forecast",         ["python", "marketing/pm/seasonal_forecast.py", "marketing/sample_timeseries.csv", "--metric", "revenue", "--days", "5"], "SEASONAL FORECAST"),
     ("sc: pareto",                    ["python", "marketing/pm/pareto.py", "marketing/sample_campaign.csv", "--value", "revenue"], "PARETO"),
     ("sc: hhi",                       ["python", "marketing/pm/hhi.py", "marketing/sample_campaign.csv", "--value", "spend"], "CONCENTRATION"),
+    ("sc: cohort_heatmap",            ["python", "marketing/pm/cohort_heatmap.py", "marketing/sample_cohorts.csv", "--out", "docs/demo/cohort_heatmap.html"], "COHORT HEATMAP"),
+    ("sc: winback_priority",          ["python", "marketing/pm/winback_priority.py", "marketing/sample_tx.csv", "--asof", "2026-02-15"], "WINBACK PRIORITY"),
 ]
 
 def run():

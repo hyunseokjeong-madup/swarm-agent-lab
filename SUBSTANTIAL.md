@@ -14,9 +14,11 @@
 | 6 | 미디어믹스 회귀 MMM(OLS, 가우스소거) | `marketing/pm/mmm.py` | 진짜 계수 2/3/1.5 복원, R²=1.0 |
 | 7 | geo 증분성(이중차분 DiD) | `marketing/pm/geo_lift.py` | 증분 400/리프트 36.4% 검산 |
 | 8 | RFM 세그멘테이션(5분위) | `marketing/pm/rfm.py` | 세그·매출비중 100% 검산 |
+| 9 | 검색어 클러스터링(공통토큰) | `marketing/pm/cluster_terms.py` | 6→5 클러스터 |
+| 10 | HTML 대시보드 생성 | `marketing/pm/dashboard.py` | valid HTML 산출 |
 
 ## ⬜ 진행/큐 (각 30분급)
-9 검색어 클러스터링 ·
+11 입찰 시뮬레이터 ·
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

@@ -53,6 +53,8 @@ CHECKS = [
     ("sc: mmm",                       ["python", "marketing/pm/mmm.py", "marketing/sample_mmm.csv", "--channels", "meta,google,naver"], "MMM (OLS"),
     ("sc: geo_lift",                  ["python", "marketing/pm/geo_lift.py", "marketing/sample_geo.csv"], "GEO INCREMENTALITY"),
     ("sc: rfm",                       ["python", "marketing/pm/rfm.py", "marketing/sample_tx.csv", "--asof", "2026-01-31"], "RFM"),
+    ("sc: cluster_terms",             ["python", "marketing/pm/cluster_terms.py", "marketing/sample_searchterms.csv"], "SEARCH-TERM CLUSTERS"),
+    ("sc: dashboard",                 ["python", "marketing/pm/dashboard.py", "marketing/sample_campaign.csv", "--by", "creative", "--out", "docs/demo/dashboard.html"], "DASHBOARD"),
 ]
 
 def run():

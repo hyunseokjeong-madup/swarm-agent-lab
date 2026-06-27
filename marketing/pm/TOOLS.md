@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 52개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 54개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -17,6 +17,7 @@
 | `cluster_terms.py` | 검색어 클러스터링 — 공통 토큰으로 검색어를 묶고 클러스터별 성과 집계. |
 | `cohort.py` | 코호트 리텐션 + LTV 곡선. |
 | `cohort_heatmap.py` | 코호트 리텐션 HTML 히트맵 — 코호트×기간 잔존율을 색조 셀로 시각화. 잔존율 계산 정확. |
+| `confidence_interval.py` | Wilson 신뢰구간 — 비율(전환율 등)의 정확한 CI. 소표본·극단비율에서 정규근사보다 정확. |
 | `conversion_lag.py` | 전환 지연(conversion lag) 분포 — 클릭→전환 소요일 분포로 어트리뷰션 윈도우 적정성 진단. |
 | `dashboard.py` | HTML 대시보드 생성 — CSV를 받아 종합 카드 + 차원별 표(인라인 막대)를 단일 HTML로 출력. |
 | `data_quality.py` | 데이터 품질 검증기 — 마케팅 CSV의 정합성 위반을 다중 룰로 점검(보고 전 게이트). |
@@ -49,6 +50,7 @@
 | `rotation.py` | 소재 로테이션/리프레시. 노출 충분한데 CTR 낮은 소재 → 교체 후보. 신선도 우선순위 제시. |
 | `sample_size.py` | A/B 표본수 · 검정력 계산기 (two-proportion). |
 | `saturation_fit.py` | 반응곡선 적합(포화) — Hill/Michaelis 곡선 y = Vmax·x/(K+x) 을 (지출,전환) 점들에서 적합. |
+| `scorecard.py` | 가중 점수카드 — 여러 지표를 0~1 정규화(min-max) 후 가중합으로 종합 순위. |
 | `search_terms.py` | 검색어 분석. 지출은 큰데 전환 0인 검색어 → 네거티브 키워드 후보. 전환 좋은 검색어 → 확대 후보. |
 | `seasonal_forecast.py` | 계절성 반영 예측 — 선형 추세 × 요일 계절지수로 향후 N일 예측. |
 | `seasonality.py` | 시즌성(요일) 지수. 요일 평균/전체 평균 = 지수(>1 강세, <1 약세). 입찰·예산 가중 가이드. |

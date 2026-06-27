@@ -68,6 +68,7 @@ CHECKS = [
     ("sc: shapley_attribution",       ["python", "marketing/pm/shapley_attribution.py", "marketing/sample_paths.csv"], "SHAPLEY ATTRIBUTION"),
     ("sc: conversion_lag",            ["python", "marketing/pm/conversion_lag.py", "marketing/sample_lag.csv"], "CONVERSION LAG"),
     ("sc: incrementality_ab",         ["python", "marketing/pm/incrementality_ab.py", "--test-n", "100000", "--test-conv", "3000", "--control-n", "100000", "--control-conv", "2500"], "INCREMENTALITY"),
+    ("sc: tools_index",               ["python", "marketing/pm/tools_index.py"], "TOOLS index"),
 ]
 
 def run():

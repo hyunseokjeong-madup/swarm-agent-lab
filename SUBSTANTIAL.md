@@ -22,9 +22,11 @@
 | 14 | KPI 변동 요인분해(CPA=CPC/CVR 로그) | `marketing/pm/kpi_decomp.py` | +50%=20%×25% 검산 |
 | 15 | 가격탄력성(로그-로그 OLS) | `marketing/pm/price_elasticity.py` | e=-1.5 복원, R²=1.0 |
 | 16 | 프로모션 ROI(마진잠식) | `marketing/pm/promo_roi.py` | 증분 -5M/BE +100% 검산 |
+| 17 | 시장바구니 연관규칙(support/conf/lift) | `marketing/pm/market_basket.py` | lift 1.12x 검산 |
+| 18 | 이탈위험 스코어(최근성/기대주기) | `marketing/pm/churn_score.py` | 위험 4명 식별 |
 
 ## ⬜ 진행/큐 (각 30분급)
-17 시장바구니 분석(연관규칙) ·
+19 신규 vs 재구매 분해 ·
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

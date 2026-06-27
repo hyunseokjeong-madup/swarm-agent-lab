@@ -61,6 +61,8 @@ CHECKS = [
     ("sc: kpi_decomp",                ["python", "marketing/pm/kpi_decomp.py", "--cpc-a", "500", "--cvr-a", "0.05", "--cpc-b", "600", "--cvr-b", "0.04"], "KPI DECOMPOSITION"),
     ("sc: price_elasticity",          ["python", "marketing/pm/price_elasticity.py", "marketing/sample_pq.csv"], "PRICE ELASTICITY"),
     ("sc: promo_roi",                 ["python", "marketing/pm/promo_roi.py", "--baseline-units", "1000", "--price", "50000", "--margin", "0.4", "--discount", "0.2", "--uplift", "0.5"], "PROMO ROI"),
+    ("sc: market_basket",             ["python", "marketing/pm/market_basket.py", "marketing/sample_baskets.csv", "--min-support", "0.2"], "MARKET BASKET"),
+    ("sc: churn_score",               ["python", "marketing/pm/churn_score.py", "marketing/sample_tx.csv", "--asof", "2026-02-15"], "CHURN RISK"),
 ]
 
 def run():

@@ -14,7 +14,7 @@ Best for hard reasoning/analysis/implementation where **robustness** matters. It
 into a **parallel Solver swarm** (diverse strategies) → **Verifier swarm** (adversarial cross-check)
 → **Synthesizer** (verified majority).
 
-### `madup-marketer` — marketing specialist
+### `madobi` — marketing specialist
 Best for ad performance analysis, spreadsheet summaries, campaign/event analysis, and the
 creative lifecycle. Its prime directive: **never report a number that hasn't been reconciled.**
 

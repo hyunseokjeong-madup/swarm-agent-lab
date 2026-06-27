@@ -52,7 +52,7 @@ F03_adversarial_c, F02_verify_complement, F02_verify_invert, F01_decomp_e
 - **결정전(오류多 6문항 × 5시행)**: 단일샷 **F03_adversarial_c 29/30**·C2_selfverify 29/30 공동 최강.
   **다수결 시 4종 전부 6/6 완벽** → 검증+self-consistency가 무거운 산술 슬립을 0으로.
 - **🏆 챔피언 = `F03_adversarial_c`** (적대적 자기반박). 배포 레시피 = **검증 스웜 + 다수결(3)**.
-- 일반 챔피언(SWARM-SOLVER) → 마케팅 특화(MADUP-MARKETER)로 도메인 적용.
+- 일반 챔피언(SWARM-SOLVER) → 마케팅 특화(MADOBI)로 도메인 적용.
 
 ## 4-b. 경쟁우위 (vs Hermes Agent · Pi Agent)
 기존 에이전틱 시스템은 둘 다 **단일 에이전트 루프**:
@@ -71,7 +71,7 @@ SWARM-SOLVER의 4축 우위 (상세 `ADVANTAGES.md`):
 |------|------|
 | `.claude/agents/smartest.md` | **챔피언 에이전트** — 스웜/팀 오케스트레이터(+경쟁우위 레이어) |
 | `ADVANTAGES.md` | Hermes·Pi 대비 경쟁우위 분석 |
-| `.claude/agents/madup-marketer.md` | **마케팅 특화 에이전트** (정합성·소재·성장형 메모리) |
+| `.claude/agents/madobi.md` | **마케팅 특화 에이전트** (정합성·소재·성장형 메모리) |
 | `.claude/skills/marketing-analyst/SKILL.md` | **스킬화** — 루틴 마케팅 업무 자동화 |
 | `marketing/STRATEGY.md` | 마케팅 에이전트 전략 |
 | `marketing/METRICS.md` | 지표 공식 + **정합성 불변식**(놀리지에셋) |

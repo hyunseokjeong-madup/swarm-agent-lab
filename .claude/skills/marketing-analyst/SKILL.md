@@ -3,7 +3,7 @@ name: marketing-analyst
 description: 매드업 마케팅 분석가 스킬. 광고 성과 분석·스프레드시트 요약·이벤트/캠페인 분석·광고 소재(creative) 기획/생성/점검을 숫자 정합성(reconciliation) 보장과 함께 자동 수행한다. 스프레드/시트/CSV 요약, CTR·CPC·CPA·ROAS·CPM 계산, 소재 성과·승자 분석, 소재 카피/후크 기획, 리포트 작성 같은 루틴 업무를 요청할 때 사용. 숫자를 절대 틀리지 않는 것이 최우선.
 ---
 
-# Marketing-Analyst Skill (MADUP-MARKETER)
+# Marketing-Analyst Skill (MADOBI)
 
 매드업 분석가의 **루틴 업무를 정합성 보장과 함께 자동화**한다.
 핵심 원칙: **모든 숫자는 원자료에서 재계산 + 독립 교차검증한 값만 보고한다.** ("느낌" 금지.)

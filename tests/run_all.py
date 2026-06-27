@@ -18,6 +18,11 @@ CHECKS = [
     ("creative analyzer runs",        ["python", "marketing/analyze_creatives.py", "marketing/sample_campaign.csv"], "CREATIVE ANALYSIS"),
     ("creative generator runs",       ["python", "marketing/creative_gen.py", "--product", "x", "--n", "3"], "CREATIVE MATRIX"),
     ("event analyzer runs",           ["python", "marketing/event_analysis.py", "marketing/sample_timeseries.csv", "--metric", "revenue", "--event", "2026-01-10"], "EVENT/CAMPAIGN ANALYSIS"),
+    ("report generator runs",         ["python", "marketing/report.py", "marketing/sample_campaign.csv", "--by", "creative"], "성과 리포트"),
+    ("pm: pacing",                    ["python", "marketing/pm/pacing.py", "--spend", "100", "--budget", "200", "--elapsed", "5", "--total", "10"], "PACING"),
+    ("pm: funnel",                    ["python", "marketing/pm/funnel.py", "--csv", "marketing/sample_campaign.csv"], "FUNNEL"),
+    ("pm: abtest",                    ["python", "marketing/pm/abtest.py", "--a-n", "1000", "--a-x", "50", "--b-n", "1000", "--b-x", "70"], "A/B TEST"),
+    ("pm: reallocate",                ["python", "marketing/pm/reallocate.py", "marketing/sample_campaign.csv", "--by", "creative"], "REALLOCATION"),
 ]
 
 def run():

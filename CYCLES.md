@@ -1,0 +1,38 @@
+# 🔄 100-Cycle 트래커 (퍼포먼스 마케팅 일상 루틴 자동화)
+
+목표: 퍼마 분석가의 **일상 루틴**을 한 사이클에 하나씩, 코드검증 + 커밋·푸시로 완성. 100 사이클까지.
+규칙: 각 사이클 = 실제 동작하는 도구/자산 1개 + `tests/run_all.py` green + 이 표 갱신.
+
+## ✅ 완료 (16/100)
+| # | 사이클 | 산출물 |
+|---|--------|--------|
+| 1 | 숫자 정합성 검산 | `marketing/reconcile.py` |
+| 2 | 소재 성과 분석 | `marketing/analyze_creatives.py` |
+| 3 | 대용량 집계 | `marketing/bench/summarize.py` |
+| 4 | 집계 벤치 30단계(4D 피벗) | `marketing/bench/levels.py` |
+| 5 | 소재 변주 생성 | `marketing/creative_gen.py` |
+| 6 | 이벤트/리프트/이상치 | `marketing/event_analysis.py` |
+| 7 | 자기개선(피드백→깃) | `learn.py` |
+| 8 | 놀리지 자동동기화 훅 | `tools/autosync.py` + settings |
+| 9 | 통합 테스트 러너 | `tests/run_all.py` |
+| 10 | 라이브 데모 리포트 | `docs/DEMO.md` |
+| 11 | Gen5 마케팅 추론 벤치 | `marketing/bench/marketing_reasoning.py` |
+| 12 | 성과 리포트 생성 | `marketing/report.py` |
+| 13 | 예산 페이싱 알림 | `marketing/pm/pacing.py` |
+| 14 | 퍼널 드롭오프 | `marketing/pm/funnel.py` |
+| 15 | A/B 유의성 검정 | `marketing/pm/abtest.py` |
+| 16 | 예산 재배분 제안 | `marketing/pm/reallocate.py` |
+
+## ⬜ 큐 (퍼마 일상 루틴 — 다음 사이클들)
+17 일일 알림 다이제스트(페이싱+이상치+가드레일 통합) · 18 목표 CPA/ROAS 가드레일 체커 ·
+19 검색어/네거티브 키워드 발굴 · 20 요일×시간 히트맵 · 21 소재 로테이션/피로 리프레시 스케줄 ·
+22 코호트 리텐션/LTV-페이백 · 23 POAS(마진반영 ROAS) · 24 월말 예산/전환 예측 ·
+25 빈도(frequency) 캡 점검 · 26 네이밍 규칙 검증기 · 27 채널 믹스 최적화 · 28 세그먼트 성과 랭커 ·
+29 입찰 조정 제안 · 30 낭비 탐지(저ROAS·고지출) · 31 증분성(holdout) 추정 · 32 시즌성 탐지 ·
+33 전환 지연(lag) 보정 · 34 어트리뷰션 윈도우 비교 · 35 CPM 추세/경매압력 · 36 LP 퍼널(있으면) ·
+37 예산 시뮬레이터 · 38 KPI 이상 자동 코멘트 · 39 경쟁 벤치(점유율) · 40 리포트 스케줄러(하네스) ·
+… (41–100: 위 루틴들의 심화/통합·다계정·자동화·대시보드)
+
+## 진행 원칙
+- 동시 워크플로 1~2개. 모든 수치 코드검증. 각 사이클 커밋·푸시.
+- 사용자 피드백은 `learn.py`로 학습→깃 반영. 이 표는 매 사이클 갱신(살아있는 문서).

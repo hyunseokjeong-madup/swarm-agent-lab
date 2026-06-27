@@ -113,6 +113,7 @@ marketing/        STRATEGY · METRICS · CREATIVE_PLAYBOOK · MEMORY_PROTOCOL ·
                   reconcile.py · analyze_creatives.py · bench/(대용량 집계 벤치)
                   knowledge/·history/  (계정별 성장형 자산)
 learn.py          피드백 → 놀리지에셋 → 깃 (자기개선)
+tests/run_all.py  통합 검증 — 모든 결정론적 보장이 green인지 확인 (회귀 방지)
 results/          세대별 원자료 + 랭킹
 optimization_log.md  Planner 운영 일지(과정·교훈) · KNOWHOW.md 누적 지식 · ADVANTAGES.md vs 경쟁
 ```

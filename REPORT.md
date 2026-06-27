@@ -1,4 +1,4 @@
-# 🧠 Smartest-Agent Lab — 리포트
+# 🧠 MADOBI — 실험 리포트 (Smartest-Agent Lab)
 
 > Claude Code를 "가장 똑똑하게" 만드는 운영 매뉴얼을 **스웜 최적화 + 팀 모드**로 탐색한 실험.
 > 진화적 프롬프트 최적화 · 코드 검증 벤치마크 · 다중 팀 병렬.

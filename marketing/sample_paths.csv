@@ -1,0 +1,7 @@
+path_id,step,channel,value,converted
+P1,1,meta,0,0
+P1,2,google,0,0
+P1,3,naver,100000,1
+P2,1,meta,0,0
+P2,2,meta,50000,1
+P3,1,google,30000,1

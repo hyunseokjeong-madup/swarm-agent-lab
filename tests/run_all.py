@@ -45,6 +45,9 @@ CHECKS = [
     ("bench: reasoning2",             ["python", "marketing/bench/reasoning2.py"], "built 40"),
     ("kb: build_kb5",                 ["python", "marketing/knowledge/build_kb5.py"], "generated"),
     ("bench: reasoning3",             ["python", "marketing/bench/reasoning3.py"], "built 18"),
+    ("sc: mta",                       ["python", "marketing/pm/attribution_mta.py", "marketing/sample_paths.csv"], "MULTI-TOUCH"),
+    ("sc: budget_optimizer",          ["python", "marketing/pm/budget_optimizer.py", "marketing/sample_campaign.csv", "--by", "creative"], "BUDGET OPTIMIZER"),
+    ("sc: sample_size",               ["python", "marketing/pm/sample_size.py", "--baseline", "0.04", "--mde", "0.2"], "SAMPLE SIZE"),
 ]
 
 def run():

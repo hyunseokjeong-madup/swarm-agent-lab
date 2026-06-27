@@ -14,6 +14,10 @@ CHECKS = [
     ("large dataset generates",       ["python", "marketing/bench/gen_dataset.py", "--rows", "30000"], "ground_truth.json"),
     ("aggregation is EXACT at scale", ["python", "marketing/bench/verify_bench.py"], "ALL"),
     ("30-level difficulty ladder",    ["python", "marketing/bench/levels.py"], "ALL LEVELS PASS"),
+    ("summarize tool runs",           ["python", "marketing/bench/summarize.py", "marketing/sample_campaign.csv", "--by", "creative"], "SUMMARY"),
+    ("creative analyzer runs",        ["python", "marketing/analyze_creatives.py", "marketing/sample_campaign.csv"], "CREATIVE ANALYSIS"),
+    ("creative generator runs",       ["python", "marketing/creative_gen.py", "--product", "x", "--n", "3"], "CREATIVE MATRIX"),
+    ("event analyzer runs",           ["python", "marketing/event_analysis.py", "marketing/sample_timeseries.csv", "--metric", "revenue", "--event", "2026-01-10"], "EVENT/CAMPAIGN ANALYSIS"),
 ]
 
 def run():

@@ -57,6 +57,8 @@ CHECKS = [
     ("sc: dashboard",                 ["python", "marketing/pm/dashboard.py", "marketing/sample_campaign.csv", "--by", "creative", "--out", "docs/demo/dashboard.html"], "DASHBOARD"),
     ("sc: bid_sim",                   ["python", "marketing/pm/bid_sim.py", "marketing/sample_landscape.csv", "--value", "50000", "--cvr", "0.05"], "BID SIMULATOR"),
     ("sc: ltv_forecast",              ["python", "marketing/pm/ltv_forecast.py", "marketing/sample_retention.csv", "--arpu", "10000", "--horizon", "6"], "LTV FORECAST"),
+    ("sc: pacing_optimizer",          ["python", "marketing/pm/pacing_optimizer.py", "--budget", "30000000", "--spent", "12000000", "--remaining-days", "6"], "PACING OPTIMIZER"),
+    ("sc: kpi_decomp",                ["python", "marketing/pm/kpi_decomp.py", "--cpc-a", "500", "--cvr-a", "0.05", "--cpc-b", "600", "--cvr-b", "0.04"], "KPI DECOMPOSITION"),
 ]
 
 def run():

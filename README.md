@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🧠 Swarm Agent Lab
+<img src="assets/logo.svg" alt="Swarm Agent Lab" width="660">
+
+# Swarm Agent Lab
 
 **An agent that earns its intelligence — selected by evolutionary swarm optimization, not hand-tuned.**
 
@@ -82,6 +84,25 @@ python learn.py --feedback "ROAS는 항상 배수(x)로 표기" --scope global -
 ```
 
 So the repo itself becomes the team's compounding, version-controlled knowledge base. See [`marketing/LEARNING_LOOP.md`](marketing/LEARNING_LOOP.md).
+
+## ⚡ Use it in Claude Code (directly)
+
+The agents and skill live under `.claude/` — **Claude Code auto-loads them**, no install step:
+
+```bash
+git clone https://github.com/hyunseokjeong-madup/swarm-agent-lab
+cd swarm-agent-lab
+claude            # the `smartest` / `madup-marketer` agents + `marketing-analyst` skill are now available
+```
+
+To use them in **another project**, copy the folders into that project (or your user scope `~/.claude/`):
+```bash
+cp -r .claude/agents/*  <your-project>/.claude/agents/
+cp -r .claude/skills/*  <your-project>/.claude/skills/
+cp -r marketing/        <your-project>/        # knowledge assets + reconcile/summarize tools
+```
+Then just ask: *"이 캠페인 CSV 요약하고 숫자 검산해줘"* → it reconciles before reporting.
+Improvements you give it auto-commit to the repo (`learn.py`, auto-push ON by default).
 
 ## 🚀 Quickstart
 

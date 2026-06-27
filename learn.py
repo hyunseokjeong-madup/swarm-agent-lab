@@ -29,7 +29,9 @@ def main():
     ap.add_argument("--scope", choices=["global", "account"], default="global")
     ap.add_argument("--account", default=None)
     ap.add_argument("--tag", default="general")
-    ap.add_argument("--commit", action="store_true", help="git add/commit/push")
+    ap.add_argument("--no-commit", dest="commit", action="store_false",
+                    help="skip git add/commit/push (auto-commit+push is ON by default)")
+    ap.set_defaults(commit=True)
     a = ap.parse_args()
     ts = datetime.now(KST).strftime("%Y-%m-%d %H:%M KST")
     date = datetime.now(KST).strftime("%Y-%m-%d")

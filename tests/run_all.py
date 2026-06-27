@@ -55,6 +55,8 @@ CHECKS = [
     ("sc: rfm",                       ["python", "marketing/pm/rfm.py", "marketing/sample_tx.csv", "--asof", "2026-01-31"], "RFM"),
     ("sc: cluster_terms",             ["python", "marketing/pm/cluster_terms.py", "marketing/sample_searchterms.csv"], "SEARCH-TERM CLUSTERS"),
     ("sc: dashboard",                 ["python", "marketing/pm/dashboard.py", "marketing/sample_campaign.csv", "--by", "creative", "--out", "docs/demo/dashboard.html"], "DASHBOARD"),
+    ("sc: bid_sim",                   ["python", "marketing/pm/bid_sim.py", "marketing/sample_landscape.csv", "--value", "50000", "--cvr", "0.05"], "BID SIMULATOR"),
+    ("sc: ltv_forecast",              ["python", "marketing/pm/ltv_forecast.py", "marketing/sample_retention.csv", "--arpu", "10000", "--horizon", "6"], "LTV FORECAST"),
 ]
 
 def run():

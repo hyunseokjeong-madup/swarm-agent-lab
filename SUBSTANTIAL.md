@@ -16,9 +16,11 @@
 | 8 | RFM 세그멘테이션(5분위) | `marketing/pm/rfm.py` | 세그·매출비중 100% 검산 |
 | 9 | 검색어 클러스터링(공통토큰) | `marketing/pm/cluster_terms.py` | 6→5 클러스터 |
 | 10 | HTML 대시보드 생성 | `marketing/pm/dashboard.py` | valid HTML 산출 |
+| 11 | 입찰 시뮬레이터(이익최대 입찰) | `marketing/pm/bid_sim.py` | 최적 CPC·손익분기 검산 |
+| 12 | LTV 예측(기하감쇠 외삽) | `marketing/pm/ltv_forecast.py` | d=0.5, LTV 19,688 검산 |
 
 ## ⬜ 진행/큐 (각 30분급)
-11 입찰 시뮬레이터 ·
+13 페이싱 최적화(잔여예산 재분배) ·
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

@@ -65,6 +65,7 @@ CHECKS = [
     ("sc: churn_score",               ["python", "marketing/pm/churn_score.py", "marketing/sample_tx.csv", "--asof", "2026-02-15"], "CHURN RISK"),
     ("sc: new_vs_returning",          ["python", "marketing/pm/new_vs_returning.py", "marketing/sample_tx.csv"], "NEW vs RETURNING"),
     ("sc: data_quality",              ["python", "marketing/pm/data_quality.py", "marketing/sample_dirty.csv"], "DATA QUALITY"),
+    ("sc: shapley_attribution",       ["python", "marketing/pm/shapley_attribution.py", "marketing/sample_paths.csv"], "SHAPLEY ATTRIBUTION"),
 ]
 
 def run():

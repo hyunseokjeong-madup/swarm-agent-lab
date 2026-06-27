@@ -33,6 +33,7 @@ CHECKS = [
     ("pm: naming_check",              ["python", "marketing/pm/naming_check.py", "--names", "CMP_benefit_video_number_v01"], "NAMING CHECK"),
     ("pm: search_terms",              ["python", "marketing/pm/search_terms.py", "marketing/sample_searchterms.csv"], "SEARCH TERMS"),
     ("pm: channel_mix",               ["python", "marketing/pm/channel_mix.py", "marketing/sample_campaign.csv", "--by", "creative"], "CHANNEL MIX"),
+    ("pm: alert_digest",              ["python", "marketing/pm/alert_digest.py", "marketing/sample_campaign.csv", "--by", "creative", "--target-roas", "2.5"], "DAILY DIGEST"),
 ]
 
 def run():

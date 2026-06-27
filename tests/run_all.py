@@ -59,6 +59,8 @@ CHECKS = [
     ("sc: ltv_forecast",              ["python", "marketing/pm/ltv_forecast.py", "marketing/sample_retention.csv", "--arpu", "10000", "--horizon", "6"], "LTV FORECAST"),
     ("sc: pacing_optimizer",          ["python", "marketing/pm/pacing_optimizer.py", "--budget", "30000000", "--spent", "12000000", "--remaining-days", "6"], "PACING OPTIMIZER"),
     ("sc: kpi_decomp",                ["python", "marketing/pm/kpi_decomp.py", "--cpc-a", "500", "--cvr-a", "0.05", "--cpc-b", "600", "--cvr-b", "0.04"], "KPI DECOMPOSITION"),
+    ("sc: price_elasticity",          ["python", "marketing/pm/price_elasticity.py", "marketing/sample_pq.csv"], "PRICE ELASTICITY"),
+    ("sc: promo_roi",                 ["python", "marketing/pm/promo_roi.py", "--baseline-units", "1000", "--price", "50000", "--margin", "0.4", "--discount", "0.2", "--uplift", "0.5"], "PROMO ROI"),
 ]
 
 def run():

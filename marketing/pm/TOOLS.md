@@ -1,10 +1,11 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 56개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 58개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
 | `abtest.py` | A/B 테스트 유의성 (two-proportion z-test). 전환율 A vs B가 통계적으로 유의한가. |
+| `account_health.py` | 계정 헬스 스코어 — 캠페인 CSV에서 효율(ROAS/목표)·집중도(HHI)·데이터품질을 종합해 0~100 점수. |
 | `alert_digest.py` | 일일 알림 다이제스트. 한 CSV에서 가드레일 위반·낭비·상위성과를 한 번에 요약(아침 점검용). |
 | `anomaly_ts.py` | 시계열 이상탐지 — 추세(이동중앙값) + 요일계절 + 잔차(MAD) 분해. |
 | `attribution_compare.py` | 어트리뷰션 비교. 두 전환 소스(예: 플랫폼 vs GA/내부)의 합계와 격차(%)를 대사. |
@@ -19,6 +20,7 @@
 | `cohort_heatmap.py` | 코호트 리텐션 HTML 히트맵 — 코호트×기간 잔존율을 색조 셀로 시각화. 잔존율 계산 정확. |
 | `confidence_interval.py` | Wilson 신뢰구간 — 비율(전환율 등)의 정확한 CI. 소표본·극단비율에서 정규근사보다 정확. |
 | `conversion_lag.py` | 전환 지연(conversion lag) 분포 — 클릭→전환 소요일 분포로 어트리뷰션 윈도우 적정성 진단. |
+| `correlation.py` | 피어슨 상관 — 두 수치 컬럼의 상관계수(시너지/잠식/연관 탐지). r=cov/(sx·sy). 계산 정확. |
 | `dashboard.py` | HTML 대시보드 생성 — CSV를 받아 종합 카드 + 차원별 표(인라인 막대)를 단일 HTML로 출력. |
 | `data_quality.py` | 데이터 품질 검증기 — 마케팅 CSV의 정합성 위반을 다중 룰로 점검(보고 전 게이트). |
 | `dow_heatmap.py` | 요일별 성과 히트맵. 날짜 컬럼 → 요일별 지표 집계(가중) + 막대. |

@@ -83,6 +83,8 @@ CHECKS = [
     ("sc: confidence_interval",       ["python", "marketing/pm/confidence_interval.py", "--conv", "50", "--n", "1000"], "CONFIDENCE INTERVAL"),
     ("sc: forecast_accuracy",         ["python", "marketing/pm/forecast_accuracy.py", "marketing/sample_af.csv"], "FORECAST ACCURACY"),
     ("sc: target_setter",             ["python", "marketing/pm/target_setter.py", "--target-roas", "3", "--aov", "50000", "--cvr", "0.05"], "TARGET SETTER"),
+    ("sc: correlation",               ["python", "marketing/pm/correlation.py", "marketing/sample_campaign.csv", "--x", "spend", "--y", "conversions"], "CORRELATION"),
+    ("sc: account_health",            ["python", "marketing/pm/account_health.py", "marketing/sample_campaign.csv", "--target-roas", "2.5"], "ACCOUNT HEALTH"),
 ]
 
 def run():

@@ -43,6 +43,8 @@ CHECKS = [
     ("kb: build_kb3",                 ["python", "marketing/knowledge/build_kb3.py"], "generated"),
     ("kb: build_kb4",                 ["python", "marketing/knowledge/build_kb4.py"], "generated"),
     ("bench: reasoning2",             ["python", "marketing/bench/reasoning2.py"], "built 40"),
+    ("kb: build_kb5",                 ["python", "marketing/knowledge/build_kb5.py"], "generated"),
+    ("bench: reasoning3",             ["python", "marketing/bench/reasoning3.py"], "built 18"),
 ]
 
 def run():

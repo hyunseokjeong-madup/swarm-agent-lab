@@ -1,0 +1,110 @@
+[
+  {
+    "id": "Y01",
+    "group": "marketing",
+    "prompt": "노출 250,000, 클릭 7,500일 때 CTR(%)? 소수 둘째.",
+    "format": "퍼센트 소수 둘째"
+  },
+  {
+    "id": "Y02",
+    "group": "marketing",
+    "prompt": "광고비 2,400,000원, 클릭 4,000일 때 CPC(원)?",
+    "format": "정수(원)"
+  },
+  {
+    "id": "Y03",
+    "group": "marketing",
+    "prompt": "광고비 2,400,000원, 노출 200,000일 때 CPM(원)?",
+    "format": "정수(원)"
+  },
+  {
+    "id": "Y04",
+    "group": "marketing",
+    "prompt": "클릭 4,000, 전환 240일 때 CVR(%)? 소수 둘째.",
+    "format": "퍼센트 소수 둘째"
+  },
+  {
+    "id": "Y05",
+    "group": "marketing",
+    "prompt": "광고비 2,400,000원, 전환 240건일 때 CPA(원)?",
+    "format": "정수(원)"
+  },
+  {
+    "id": "Y06",
+    "group": "marketing",
+    "prompt": "매출 9,600,000원, 광고비 2,400,000원일 때 ROAS(배수)? 소수 둘째.",
+    "format": "소수 둘째"
+  },
+  {
+    "id": "Y07",
+    "group": "marketing",
+    "prompt": "매출 9,600,000원, 광고비 2,400,000원, 마진율 25%일 때 POAS? 소수 둘째.",
+    "format": "소수 둘째"
+  },
+  {
+    "id": "Y08",
+    "group": "marketing",
+    "prompt": "매출 9,600,000원, 광고비 2,400,000원일 때 ROI(%)?",
+    "format": "정수(%)"
+  },
+  {
+    "id": "Y09",
+    "group": "marketing",
+    "prompt": "매출 9,600,000원, 주문 320건일 때 AOV(원)?",
+    "format": "정수(원)"
+  },
+  {
+    "id": "Y10",
+    "group": "marketing",
+    "prompt": "노출 800,000, 도달 200,000일 때 빈도?",
+    "format": "정수"
+  },
+  {
+    "id": "Y11",
+    "group": "marketing",
+    "prompt": "총예산 45,000,000원, 하루 1,500,000원 소진 시 며칠?",
+    "format": "정수(일)"
+  },
+  {
+    "id": "Y12",
+    "group": "marketing",
+    "prompt": "목표 CPA 12,000원, CVR 5%일 때 최대 CPC(원)?",
+    "format": "정수(원)"
+  },
+  {
+    "id": "Y13",
+    "group": "marketing",
+    "prompt": "A(노출 200,000 클릭 4,000), B(노출 200,000 클릭 6,000) 가중 CTR(%)? 소수 둘째.",
+    "format": "퍼센트 소수 둘째"
+  },
+  {
+    "id": "Y14",
+    "group": "marketing",
+    "prompt": "채널 광고비 2,000,000/1,500,000/500,000원, 보고 총합 4,200,000원. 차이(절대값,원)?",
+    "format": "정수(원)"
+  },
+  {
+    "id": "Y15",
+    "group": "marketing",
+    "prompt": "CAC 40,000원, 월 ARPU 25,000원, 공헌마진 40%일 때 페이백(개월)? 소수 첫째.",
+    "format": "소수 첫째"
+  },
+  {
+    "id": "Y16",
+    "group": "marketing",
+    "prompt": "매출 8,000,000원, 광고비 2,000,000원일 때 손익분기 마진율(%)? 정수.",
+    "format": "정수(%)"
+  },
+  {
+    "id": "Y17",
+    "group": "marketing",
+    "prompt": "총매출 30,000,000원, 총광고비 6,000,000원일 때 MER(배수)? 소수 둘째.",
+    "format": "소수 둘째"
+  },
+  {
+    "id": "Y18",
+    "group": "marketing",
+    "prompt": "도달 200,000, 노출 1,000,000일 때 빈도? 캡 3 초과 여부에 관계없이 빈도값만.",
+    "format": "정수"
+  }
+]

@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 76개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 78개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -39,6 +39,7 @@
 | `geo_lift.py` | Geo 증분성(geo holdout) — 이중차분(difference-in-differences)으로 광고 순증분 추정. |
 | `guardrails.py` | 목표 CPA/ROAS 가드레일 체커. 엔티티별로 목표 위반을 경보. |
 | `hhi.py` | 집중도 HHI — Herfindahl-Hirschman 지수(점유율 제곱합)로 채널/상품 집중도 측정. |
+| `incremental_roas.py` | 한계 ROAS — 두 구간(증액 전/후)의 추가매출/추가지출. marginal ROAS=Δrevenue/Δspend. |
 | `incrementality_ab.py` | 증분성(홀드아웃 RCT) — 노출군 vs PSA/홀드아웃 대조군의 전환율 차이로 순증분 추정. |
 | `kpi_decomp.py` | KPI 변동 요인분해 — CPA = CPC / CVR 의 기간 변화(A→B)를 CPC효과·CVR효과로 로그분해. |
 | `ltv_forecast.py` | LTV 예측 — 관측 리텐션에서 기하감쇠(retention_n = r1 * d^(n-1)) 추정 후 horizon까지 외삽, |
@@ -61,6 +62,7 @@
 | `ramp_plan.py` | 예산 램프 플랜 — 학습 리셋 없이 일일 최대 증액률(기본 20%)로 현재→목표 일예산 점진 증액 계획. |
 | `reach_planner.py` | 도달 플래너 — 예산·CPM·모수에서 노출/도달/빈도 추정(미디어 플래닝). |
 | `reallocate.py` | 예산 재배분 제안 (budget reallocation). 저효율 → 고효율 채널로 예산 이동, 매출 증분 추정. |
+| `regression_residuals.py` | 회귀/예측 잔차 진단 — 잔차(actual−pred)의 편향·표준편차·Durbin-Watson 자기상관. |
 | `revenue_waterfall.py` | 매출 워터폴 — 두 기간 사이 총매출 변화를 채널별 기여로 분해(워터폴). 합=총변화(정확). |
 | `rfm.py` | RFM 세그멘테이션 — 거래 데이터로 Recency/Frequency/Monetary 5분위 점수화 후 세그먼트 분류. |
 | `roas_gap.py` | ROAS 목표 갭 — 채널별 실제 ROAS vs 목표. 미달 채널의 매출 부족분(목표달성 필요 추가매출) 집계. |

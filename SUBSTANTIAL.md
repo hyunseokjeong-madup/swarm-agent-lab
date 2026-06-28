@@ -89,8 +89,11 @@
 | 58 | 믹스-시프트 분해(믹스 vs 단가) | `marketing/pm/mix_shift.py` | Δ+2000 분해합 ✅ |
 | 59 | ROAS 민감도표(드라이버 영향) | `marketing/pm/roas_sensitivity.py` | CVR/CPC 검산 |
 
+| 60 | 회귀 잔차 진단(bias·Durbin-Watson) | `marketing/pm/regression_residuals.py` | DW=2.6 검산 |
+| 61 | 한계 ROAS(증액 효율) | `marketing/pm/incremental_roas.py` | meta2.0/google4.0 검산 |
+
 ## ⬜ 진행/큐 (각 30분급)
-60 회귀 잔차 진단 · 61 코호트 LTV 비교 · 62 멀티 KPI 대시 · … (→200)
+62 멀티 KPI 대시 · 63 코호트 LTV 비교 · 64 채널 전환경로 길이 · … (→200)
 6 미디어믹스 회귀(MMM 간이) · 7 증분성(geo holdout) 추정 · 8 검색어 클러스터링 · 9 소재 피로 모델(추세) ·
 10 페이싱 최적화(잔여예산 재분배) · 11 HTML 대시보드 생성 · 12 데이터 품질 검증기(다중 룰) ·
 13 입찰 시뮬레이터 · 14 LTV 예측(코호트 외삽) · 15 RFM 세그먼테이션 · … (→200)

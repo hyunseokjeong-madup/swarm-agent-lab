@@ -103,6 +103,8 @@ CHECKS = [
     ("sc: chi_square",                ["python", "marketing/pm/chi_square.py", "marketing/samples/sample_contingency.csv"], "CHI-SQUARE"),
     ("sc: mix_shift",                 ["python", "marketing/pm/mix_shift.py", "marketing/samples/sample_mixshift.csv"], "MIX-SHIFT"),
     ("sc: roas_sensitivity",          ["python", "marketing/pm/roas_sensitivity.py", "--cvr", "0.05", "--aov", "50000", "--cpc", "1000"], "ROAS SENSITIVITY"),
+    ("sc: regression_residuals",      ["python", "marketing/pm/regression_residuals.py", "marketing/samples/sample_af.csv"], "RESIDUAL DIAGNOSTICS"),
+    ("sc: incremental_roas",          ["python", "marketing/pm/incremental_roas.py", "marketing/samples/sample_incroas.csv"], "INCREMENTAL ROAS"),
 ]
 
 def run():

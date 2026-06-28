@@ -30,10 +30,10 @@ Invoke implicitly by asking, e.g.:
 `.claude/skills/marketing-analyst/SKILL.md` packages the routine workflow so the agent runs it
 the same way every time:
 
-1. **Restore context** — read `marketing/knowledge/<account>.md` + recent `history/`.
+1. **Restore context** — `recall.py` searches the 214-asset knowledge base (no full read) + the account memory.
 2. **Reconcile** — recompute every derived metric from raw, check breakdown sums = totals.
 3. **Report** — verified numbers only; inconsistencies surfaced as ⚠, never hidden.
-4. **Record** — promote verified learnings to the knowledge assets (compounding).
+4. **Record** — promote verified learnings to the knowledge assets (`curate.py`, dedup-aware; compounding).
 
 ---
 
@@ -50,6 +50,40 @@ Checks performed:
 - Unit/format normalization (commas, %, currency, blanks).
 
 Column names are matched flexibly (English + Korean aliases: `impressions/노출`, `spend/비용/광고비`, …).
+
+---
+
+## 3.5 Searchable memory & extra verification (stdlib, zero deps)
+
+**Searchable knowledge (FTS5 full-text recall)** — the 214 knowledge assets are indexed, not bulk-read:
+```bash
+python marketing/knowledge/search.py --build                 # build/refresh the index (~1s)
+python marketing/knowledge/search.py 'ROAS high CPA' --category diagnostics --limit 5
+python marketing/knowledge/recall.py --account demo_ecommerce --query 'weekend CPA' --limit 5
+```
+SQLite FTS5 + bm25 ranking. No external deps; degrades to a stdlib grep fallback if the index is absent.
+
+**Dedup-aware learning** — append a lesson without duplicating an existing one:
+```bash
+python marketing/knowledge/curate.py --upsert marketing/knowledge/<account>.md --tag report --feedback '...'
+python marketing/knowledge/curate.py --onboard <account> --vertical ecommerce --baseline 'CTR 1.2%, ROAS 3.5x'
+```
+Same feedback → its date is refreshed ("재검증"), not appended twice.
+
+**Extra verification layers:**
+```bash
+python marketing/sql_query.py marketing/samples/sample_campaign.csv --group-by creative --metric roas   # DuckDB↔Python triple-verify (opt-in; group-by an existing column)
+python -c "import sys; sys.path.insert(0,'marketing'); import safemath; print(safemath.safe_div(10,0))"  # 0/0·inf guards
+```
+`sql_query.py` runs DuckDB (if installed) **and** the pure-python path, passing only if they agree —
+python is the source of truth on mismatch. Without DuckDB it transparently uses python alone.
+
+**End-to-end demo** — the whole flow on one campaign CSV:
+```bash
+python marketing/demo_e2e.py marketing/samples/sample_campaign.csv --account demo_ecommerce
+python marketing/demo_e2e.py --selftest          # non-interactive (exit 0/1)
+```
+recall → reconcile → summarize (TOTAL-row excluded) → triple-verify → consistency verdict.
 
 ---
 
@@ -85,4 +119,5 @@ python track.py
 
 - Add benchmark problems in `benchmark/build_benchmark.py` (compute the ground truth in code).
 - Add a strategy family in `gen_designs.js` and regenerate the population.
-- Add marketing knowledge to `marketing/knowledge/<account>.md` — it compounds across sessions.
+- Add marketing knowledge to `marketing/knowledge/<account>.md` — it compounds across sessions
+  (use `curate.py --upsert` to avoid duplicates; `search.py --build` to re-index for recall).

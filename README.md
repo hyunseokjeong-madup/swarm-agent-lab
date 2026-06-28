@@ -173,36 +173,118 @@ MIT — [LICENSE](LICENSE) · Made by **Madup**
 A marketing-specialized AI agent by **Madup** where **code guarantees the arithmetic and the LLM does the
 judgment** — not the other way around. Sums, ROAS, CTR, CVR, CPA and every aggregation are computed and
 cross-checked by **deterministic Python** (`reconcile.py`, `summarize.py`, the 78 tools in `pm/`); the LLM
-*chooses what to compute and interprets/explains the result*. Its operating strategy was not hand-written —
-it was **selected by evolutionary swarm optimization**: 112 candidate manuals across 14 strategy families,
-scored on a **code-verified benchmark** over 4 generations. Champion strategy = **verification-first**
-(`decompose → independent verify → adversarial refute → majority vote`), which reaches **perfect accuracy on
-the code-verified arithmetic benchmark** — exactly the failure mode behind "wrong numbers" in spreadsheet/campaign analysis.
+*chooses what to compute and interprets/explains the result*. That is the whole point of the split: **the LLM
+does not do the math.** So the basis for trust is not "the AI is smart" but **"the arithmetic is backed by
+code"** — verifiable, reproducible, auditable.
 
-**Honest limits:** MADOBI guarantees the *correctness of the arithmetic it performs* (deterministic,
-reproducible, auditable). It does **not** guarantee *data quality* — `reconcile.py` catches arithmetic
-mismatches, not source-data issues like channel mis-tagging. Always spot-check raw data.
+Its operating strategy was not hand-written — it was **selected by evolutionary swarm optimization**: a
+Designer swarm generated **112 candidate manuals across 14 strategy families**, each scored on a
+**code-verified benchmark** (20 items, no LLM grading) across **4 generations** of an evolutionary tournament
+(screening → finals → tie-break). Champion strategy = **verification-first**
+(`decompose → independent self-verify → adversarial refute → majority vote`), which reaches **perfect accuracy
+on the code-verified arithmetic benchmark** — exactly the failure mode behind "wrong numbers" in
+spreadsheet/campaign analysis.
 
 ## Key results
-- Gen2: 112 designs → verification family dominates (13 perfect on the hard subset).
-- Gen3 finals: 4 designs score 20/20. Gen4 tie-break: champion `F03_adversarial_c` (29/30 single-shot; majority-vote → 6/6).
+| Stage | What | Result |
+|-------|------|--------|
+| Gen 1 | 4 seeds × 10 items | pure decomposition **hurts** on heavy arithmetic; verification **fixes** it |
+| Gen 2 | **112 designs** × hard items (5 teams in parallel) | verification family dominates, 13 perfect |
+| Gen 3 | finals: 12 finalists × 20 items | **4 score 20/20** |
+| Gen 4 | tie-break: 4 champions × error-heavy reasoning set × 5 trials | champion **`F03_adversarial_c`** (29/30 single-shot = 96.7%); 6 selected items with **majority vote → 6/6** |
+
+**Winning recipe:** `decompose → independent self-verify → adversarial refute → majority vote`
 
 ## Use it in Claude Code
-Agents/skill under `.claude/` auto-load. `git clone … && cd madobi && claude`. Then ask
-*"summarize this campaign CSV and check the numbers"* — it reconciles before reporting. Routing is automatic
-via skill/agent `description`s, under the user's control.
+Agents/skill under `.claude/` **auto-load** — no install step:
 
-## Aggregation benchmark
-`marketing/bench/` — 100k rows × 13 fields with code-computed ground truth, a 30-level difficulty ladder
-(multi-pivot incl. a 4-dimension/225-group pivot, filters, top-N, share-of, derived-of-derived). **29/29 pass.**
+```bash
+git clone https://github.com/hyunseokjeong-madup/madobi
+cd madobi
+claude    # madobi / smartest agents + marketing-analyst skill activate immediately
+```
 
-## Self-improving loop
-`learn.py` turns your feedback into a knowledge asset and **auto-commits/pushes to git** — the repo becomes the
-team's compounding, version-controlled knowledge base.
+Then just ask *"summarize this campaign CSV and check the numbers"* — it **reconciles before reporting**.
+Routing is automatic via skill/agent `description`s (under the user's control): marketing/spreadsheet/creative
+→ `marketing-analyst`, hard reasoning → `smartest`. Say "improve this / always do X / that's wrong" and
+`learn.py` promotes the feedback into a knowledge asset and **auto-commits/pushes to git**.
+
+## The 3 things you use immediately (MVPs)
+From a marketer's view this is not "report-writing automation" — it is a **safeguard against wrong numbers in
+reports**:
+
+| # | What | How |
+|---|------|-----|
+| 1 | **CSV → recompute metrics** | ROAS·CTR·CVR·CPC·CPA·CPM·revenue·spend totals recomputed from raw data in code. Zero eyeballing. |
+| 2 | **Cross-check report numbers** | Catch mismatches between "what the report claims" and "the source data" **before** it ships (`reconcile.py`). |
+| 3 | **Evidence-attached comments** | Generate marketing commentary, but **auto-attach the supporting figure to every sentence**. |
+
+Fits SA/DA operations, monthly reports, advertiser reporting, and iROAS·CAPI performance checks — data-driven
+marketing operations out of the box.
+
+## Aggregation benchmark — "still correct at scale"
+Getting numbers right on big, many-field, messy data is the hard part, so we prove it: `marketing/bench/`
+generates **100k rows × 13 fields** (commas, ₩, mixed formats) with **code-computed ground truth** and a
+**30-level difficulty ladder** — single and **multi-pivot (incl. an absurd 4-dimension / 225-group pivot)**,
+filters, top-N, having, weekly rollups, share-of, derived-of-derived. Each level is cross-checked by **two
+independent methods + a re-sum invariant**.
+
+```text
+$ python marketing/bench/gen_dataset.py --rows 100000 && python marketing/bench/levels.py
+=== GRADED BENCHMARK: 29/29 levels PASS ===
+✅ ALL LEVELS PASS — multi-pivot / filter / top-N / 4D pivot all exact.
+```
+
+The **reconciliation engine** (`marketing/reconcile.py`) in action:
+```text
+$ python marketing/reconcile.py marketing/samples/sample_campaign.csv
+-- checks: 16 PASS, 2 WARN --
+  ! [C_carousel] ctr: reported=9.9% recomputed=5.0000%      # reported vs actual mismatch caught
+  ! [SUM] spend: rows_sum=4,100,000 vs total_row=4,200,000   # sum ≠ grand-total caught
+VERDICT: 2 INCONSISTENCY(IES) - investigate raw data
+```
+
+## Honest limits (what it guarantees, what it can't)
+Trust comes from precise boundaries, not hype:
+
+- ✅ **Guaranteed:** the **correctness of the arithmetic code performs** — sums, derived metrics, aggregations,
+  cross-checks. Same input → same output.
+- ⚠️ **Not guaranteed:** **data quality** itself. `reconcile.py` catches *arithmetic* errors, but not
+  *source-data* issues like channel mis-tagging, wrong tagging, or missing conversions. **Always spot-check
+  raw data.**
+- ⚠️ The **LLM's judgment** (interpretation, recommendations, commentary) is not deterministic — so it ships
+  *with the supporting figures* attached, so a human can verify it.
+
+## Self-improving loop (smarter the more you use it)
+Say "improve this / always do it this way / that's wrong" and MADOBI **learns the feedback → promotes it into a
+knowledge asset → logs it → auto-commits/pushes to git** (central rules propagate everywhere). The repo itself
+becomes the team's compounding, version-controlled knowledge.
+
+```bash
+python learn.py --feedback "Always write ROAS as a multiple (x)"   # auto commit/push (ON by default)
+```
+More: [`marketing/LEARNING_LOOP.md`](marketing/LEARNING_LOOP.md)
+
+## Searchable knowledge (FTS5 full-text recall)
+The 214 knowledge assets are searchable via **SQLite FTS5 + bm25 ranking** (`marketing/knowledge/search.py`) —
+**still zero external dependencies** (stdlib `sqlite3` only). If a Python build lacks FTS5 it **degrades
+gracefully** to an empty result instead of crashing.
+
+```bash
+python marketing/knowledge/search.py --build           # (re)build the index
+python marketing/knowledge/search.py 'ROAS high CPA'   # bm25-ranked recall, with snippets
+```
+
+## DuckDB-coexistence verify layer
+`marketing/sql_query.py` adds an **optional** DuckDB path for fast SQL `GROUP BY` aggregation on large CSV /
+parquet, with a **stdlib `csv` fallback** when DuckDB is absent (the module still imports and runs either way,
+so the zero-dependency core is preserved). Crucially, **DuckDB is only an extra cross-checker — on any
+mismatch, the deterministic Python path is the source of truth.**
 
 ## Why stronger than Hermes / Pi (single-loop agents)
-Evidence-based strategy · verification-swarm robustness · parallel orchestration · compounding knowledge.
-See `ADVANTAGES.md`. MIT licensed. Made by Madup.
+Both are **single-loop**. MADOBI adds four structural edges: **evidence-based strategy · verification-swarm
+robustness · parallel orchestration · compounding knowledge** — while absorbing their strengths (persistent
+memory, skill generation, minimal core). See [`ADVANTAGES.md`](ADVANTAGES.md). MIT licensed. Made by **Madup**.
 
 </details>
 

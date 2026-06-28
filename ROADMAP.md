@@ -7,7 +7,7 @@
 | 1 | **스웜 최적화 챔피언 선별** (Gen0–5) | ✅ | `optimization_log.md`, 챔피언 `F03_adversarial_c` (검증+다수결) |
 | 2 | **마케팅 특화 에이전트 + 스킬** | ✅ | `.claude/agents/madobi.md`, `skills/marketing-analyst` |
 | 3 | **숫자 정합성 엔진** | ✅ | `marketing/reconcile.py` (불일치 적발, 오탐 0) |
-| 4 | **대용량·다필드 집계 무실점** | ✅ | `bench/` 10만행×13필드, 30단계(4D 피벗) |
+| 4 | **대용량·다필드 집계 (코드검증 벤치 29/29)** | ✅ | `bench/` 10만행×13필드, 29단계(4D 피벗) 전부 PASS |
 | 5 | **소재 전주기**(기획·생성·점검·분석) | ✅ | `CREATIVE_PLAYBOOK`, `creative_gen.py`, `analyze_creatives.py` |
 | 6 | **성장형 놀리지에셋 + 자기개선/자동깃** | ✅ | `learn.py`, `tools/autosync.py`, `MEMORY_PROTOCOL`, `KNOWHOW` |
 | 7 | **난이도 50단계 확장 + 함정 케이스** | 🚧 | 시간윈도우·코호트·어트리뷰션·멀티통화·중복제거 (현 29 → 50+) |

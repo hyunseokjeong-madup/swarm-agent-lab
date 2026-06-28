@@ -33,7 +33,7 @@
 
 ## 4. 한 줄 정리
 > **"증거로 이긴 전략 × 검증 스웜의 견고성 × 병렬 오케스트레이션 × 복리형 자기개선"**
-> — 단일 루프 에이전트(Hermes·Pi)가 구조적으로 따라오기 어려운 4축.
+> — 단일 루프 에이전트(Hermes·Pi)와 차별화되는 4축. 핵심은 **검증이 옵션이 아니라 기본 내장**이라는 점.
 
 ---
 출처: Nous Research Hermes 3 / hermes-agent (github.com/nousresearch/hermes-agent),

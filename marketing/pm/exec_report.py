@@ -7,6 +7,7 @@ Usage: python exec_report.py data.csv --target-roas 3.0 --md exec.md
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 RAWM=["impressions","clicks","spend","conversions","revenue"]
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
@@ -15,7 +16,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--target-roas",type=float,default=3.0); ap.add_argument("--md",default=None)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     name=list(rows[0])[0]; h={c.lower():c for c in rows[0]}
     cols={m:h.get(m) for m in RAWM}
     ents=[]; tot={m:0.0 for m in RAWM}; dq=0

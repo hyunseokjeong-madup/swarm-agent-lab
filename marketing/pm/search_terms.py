@@ -1,6 +1,7 @@
 """검색어 분석. 지출은 큰데 전환 0인 검색어 → 네거티브 키워드 후보. 전환 좋은 검색어 → 확대 후보."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -9,7 +10,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("csv"); ap.add_argument("--min-spend",type=float,default=50000)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h=rows[0]; term=list(h)[0]
     def find(p): return next((c for c in h if re.fullmatch(p,c,re.I)),None)
     sc,cc=find("spend|cost|비용|광고비"),find("conversions|conv|전환")

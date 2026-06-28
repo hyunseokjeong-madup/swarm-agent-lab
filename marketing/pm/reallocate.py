@@ -2,6 +2,7 @@
 주의: 한계 ROAS는 체감(diminishing)하므로 추정은 상한선 가이드. 실집행은 점진적 테스트로."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("$","").replace("%","").strip()
     try: return float(s)
@@ -12,7 +13,7 @@ def main():
     ap.add_argument("--shift", type=float, default=0.2, help="저효율에서 이동할 비율(기본 20%)")
     ap.add_argument("--by", default=None)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h=rows[0]
     bycol=a.by or list(h)[0]
     def find(p): return next((c for c in h if re.fullmatch(p,c,re.I)),None)

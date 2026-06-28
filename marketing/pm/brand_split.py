@@ -7,6 +7,7 @@ Usage: python brand_split.py terms.csv --brand 브랜드명,brandname
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
     try: return float(s)
@@ -15,7 +16,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--brand",required=True)
     a=ap.parse_args()
     bkw=[b.strip().lower() for b in a.brand.split(",") if b.strip()]
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     tcol=list(rows[0])[0]; h={c.lower():c for c in rows[0]}
     sc,cc,rc=h.get("spend"),h.get("conversions") or h.get("conv"),h.get("revenue")
     agg={"brand":[0.0,0.0,0.0],"nonbrand":[0.0,0.0,0.0]}

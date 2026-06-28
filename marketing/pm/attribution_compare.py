@@ -1,6 +1,7 @@
 """어트리뷰션 비교. 두 전환 소스(예: 플랫폼 vs GA/내부)의 합계와 격차(%)를 대사."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("%","").strip()
     try: return float(s)
@@ -9,7 +10,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("csv"); ap.add_argument("--a-col",required=True); ap.add_argument("--b-col",required=True)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     sa=sum(num(r.get(a.a_col)) for r in rows); sb=sum(num(r.get(a.b_col)) for r in rows)
     diff=sa-sb; pct=diff/sb if sb else 0
     print(f"\n=== ATTRIBUTION COMPARE ===")

@@ -7,6 +7,7 @@ Usage: python correlation.py data.csv --x spend --y conversions
 """
 import argparse, csv, math, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -14,7 +15,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--x",required=True); ap.add_argument("--y",required=True)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}; xc=h.get(a.x.lower()); yc=h.get(a.y.lower())
     first=list(rows[0])[0]
     rows=[r for r in rows if not re.search(r"total|합계|총계|소계",(r.get(first) or ""),re.I)]

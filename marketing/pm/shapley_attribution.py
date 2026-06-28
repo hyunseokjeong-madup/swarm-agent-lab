@@ -8,11 +8,12 @@ Usage: python shapley_attribution.py paths.csv
 """
 import argparse, csv, math
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 from itertools import combinations
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     pc=h.get("path_id") or list(rows[0])[0]; cc=h.get("channel"); vc=h.get("converted")
     paths=defaultdict(lambda:[set(),0])

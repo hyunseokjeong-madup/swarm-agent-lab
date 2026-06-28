@@ -1,9 +1,10 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 78개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 79개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
+| `_pmutil.py` | pm 도구 공통 유틸 — 빈 데이터 우아한 처리(IndexError 방지). |
 | `abtest.py` | A/B 테스트 유의성 (two-proportion z-test). 전환율 A vs B가 통계적으로 유의한가. |
 | `account_health.py` | 계정 헬스 스코어 — 캠페인 CSV에서 효율(ROAS/목표)·집중도(HHI)·데이터품질을 종합해 0~100 점수. |
 | `alert_digest.py` | 일일 알림 다이제스트. 한 CSV에서 가드레일 위반·낭비·상위성과를 한 번에 요약(아침 점검용). |

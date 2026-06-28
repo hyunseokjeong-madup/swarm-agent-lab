@@ -1,6 +1,7 @@
 """일일 알림 다이제스트. 한 CSV에서 가드레일 위반·낭비·상위성과를 한 번에 요약(아침 점검용)."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -11,7 +12,7 @@ def main():
     ap.add_argument("--target-roas",type=float,default=2.0); ap.add_argument("--target-cpa",type=float,default=None)
     ap.add_argument("--md",default=None)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     by=a.by or list(rows[0])[0]
     def find(p): return next((c for c in rows[0] if re.fullmatch(p,c,re.I)),None)
     sc,cc,rc=find("spend|cost|비용|광고비"),find("conversions|conv|전환"),find("revenue|매출|수익")

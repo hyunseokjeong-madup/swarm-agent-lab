@@ -9,6 +9,7 @@ Usage: python attribution_mta.py paths.csv --half-life 2 --md out.md
 """
 import argparse, csv, math, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict, OrderedDict
 
 def num(s):
@@ -17,7 +18,7 @@ def num(s):
     except: return 0.0
 
 def load(path):
-    rows=list(csv.DictReader(Path(path).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(path)
     h={c.lower():c for c in rows[0]}
     def col(*names):
         for n in names:

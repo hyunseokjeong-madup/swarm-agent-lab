@@ -8,6 +8,7 @@ Usage: python cohort.py cohorts.csv [--md out.md]
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 
 def num(s):
@@ -18,7 +19,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--md",default=None)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     cc=h.get("cohort") or list(rows[0])[0]
     pc=h.get("period") or h.get("month") or h.get("day")

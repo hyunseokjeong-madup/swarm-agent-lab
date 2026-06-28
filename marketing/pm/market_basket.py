@@ -7,13 +7,14 @@ Usage: python market_basket.py baskets.csv --min-support 0.1 --top 10
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 from itertools import combinations
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv")
     ap.add_argument("--min-support",type=float,default=0.1); ap.add_argument("--top",type=int,default=10)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     tcol,icol=list(rows[0])[0],list(rows[0])[1]
     baskets=defaultdict(set)
     for r in rows: baskets[r[tcol].strip()].add(r[icol].strip())

@@ -7,6 +7,7 @@ Usage: python budget_response_alloc.py params.csv --budget 30000000 [--steps 300
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").strip()
     try: return float(s)
@@ -15,7 +16,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv")
     ap.add_argument("--budget",type=float,required=True); ap.add_argument("--steps",type=int,default=3000)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}; nc=list(rows[0])[0]; vc=h.get("vmax"); kc=h.get("k")
     ch={(r.get(nc) or "").strip():(num(r.get(vc)),num(r.get(kc))) for r in rows}
     alloc={c:0.0 for c in ch}

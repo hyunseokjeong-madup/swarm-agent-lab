@@ -7,13 +7,14 @@ Usage: python revenue_waterfall.py rev.csv
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
     try: return float(s)
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     ac=h.get("period_a") or h.get("prev") or h.get("a"); bc=h.get("period_b") or h.get("curr") or h.get("b")
     name=list(rows[0])[0]

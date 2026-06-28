@@ -6,13 +6,14 @@ Usage: python forecast_accuracy.py af.csv
 """
 import argparse, csv, math
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").strip()
     try: return float(s)
     except: return None
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     ac=h.get("actual") or h.get("a"); fc=h.get("forecast") or h.get("pred") or h.get("f")
     pairs=[(num(r.get(ac)),num(r.get(fc))) for r in rows]

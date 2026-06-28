@@ -1,6 +1,7 @@
 """퍼널 드롭오프 분석 (impr→click→conv). 가장 약한 단계 식별. CSV 합계 또는 직접 인자."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -11,7 +12,7 @@ def main():
     ap.add_argument("--impr", type=float); ap.add_argument("--clicks", type=float); ap.add_argument("--conv", type=float)
     a=ap.parse_args()
     if a.csv:
-        rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+        rows=load_rows(a.csv)
         def col(k):
             h=next((h for h in rows[0] if re.fullmatch(k,h,re.I)),None)
             return sum(num(r.get(h)) for r in rows) if h else 0

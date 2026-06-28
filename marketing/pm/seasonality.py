@@ -2,6 +2,7 @@
 import argparse, csv
 from datetime import datetime
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
@@ -12,7 +13,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("csv"); ap.add_argument("--metric",default="revenue")
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     dcol=next((h for h in rows[0] if h.lower() in ("date","날짜","일자","day")),None)
     if not dcol: print("날짜 컬럼 없음"); return
     s=defaultdict(list)

@@ -6,13 +6,14 @@ Usage: python funnel_steps.py funnel.csv
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").strip()
     try: return float(s)
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     sname=list(rows[0])[0]; h={c.lower():c for c in rows[0]}; uc=h.get("users") or list(rows[0])[1]
     steps=[((r.get(sname) or "").strip(),num(r.get(uc))) for r in rows]
     if len(steps)<2: print("단계 부족"); return

@@ -8,6 +8,7 @@ Usage: python seasonal_forecast.py series.csv --metric revenue --days 7
 import argparse, csv
 from datetime import datetime, timedelta
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
@@ -17,7 +18,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv")
     ap.add_argument("--metric",default="revenue"); ap.add_argument("--days",type=int,default=7)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     dcol=next((h for h in rows[0] if h.lower() in ("date","날짜","일자","day")),None)
     s=sorted(((datetime.strptime(r[dcol].strip(),"%Y-%m-%d"),num(r.get(a.metric))) for r in rows),key=lambda x:x[0])
     d0=s[0][0]; xs=[(d-d0).days for d,_ in s]; ys=[v for _,v in s]; n=len(xs)

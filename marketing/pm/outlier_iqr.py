@@ -7,6 +7,7 @@ Usage: python outlier_iqr.py data.csv --col cpa [--k 1.5]
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").replace("x","").strip()
     try: return float(s)
@@ -19,7 +20,7 @@ def quantile(sorted_v, q):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--col",required=True); ap.add_argument("--k",type=float,default=1.5)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     name=list(rows[0])[0]; h={c.lower():c for c in rows[0]}; col=h.get(a.col.lower())
     ents=[((r.get(name) or "").strip(),num(r.get(col))) for r in rows if not re.search(r"total|합계|총계",(r.get(name) or ""),re.I)]
     vals=sorted(v for _,v in ents if v is not None)

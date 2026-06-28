@@ -1,6 +1,7 @@
 """월말/기간말 예측. 현재 추세(일평균)로 목표 일수까지 spend/conversions/revenue 선형 투영."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -9,7 +10,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("csv"); ap.add_argument("--total-days",type=int,required=True,help="기간 총 일수(예: 월 30일)")
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     dcol=next((h for h in rows[0] if h.lower() in ("date","날짜","일자","day")),None)
     days=sorted({(r.get(dcol) or "").strip() for r in rows if dcol}) if dcol else []
     elapsed=len(days) or 1

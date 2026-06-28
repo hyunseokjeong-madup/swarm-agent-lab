@@ -7,6 +7,7 @@ Usage: python scorecard.py data.csv --weights roas:0.5,ctr:0.3,conversions:0.2
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 LOWER={"cpa","cpc","cpm","cpi","cpl"}
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").replace("x","").strip()
@@ -18,7 +19,7 @@ def main():
     W={}
     for part in a.weights.split(","):
         k,v=part.split(":"); W[k.strip().lower()]=float(v)
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     name=list(rows[0])[0]; colmap={c.lower():c for c in rows[0]}
     ents=[r for r in rows if not re.search(r"total|합계|총계",(r.get(name) or ""),re.I)]
     # gather values per metric

@@ -7,6 +7,7 @@ Usage: python dashboard.py data.csv --by creative --out dash.html
 """
 import argparse, csv, re, html
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 RAWM=["impressions","clicks","spend","conversions","revenue"]
 def num(s):
@@ -16,7 +17,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--by",default=None); ap.add_argument("--out",default="dashboard.html")
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     by=a.by or list(rows[0])[0]
     g=defaultdict(lambda:{m:0.0 for m in RAWM}); tot={m:0.0 for m in RAWM}
     for r in rows:

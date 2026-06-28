@@ -9,6 +9,7 @@ Usage: python anomaly_ts.py series.csv --metric revenue --k 3.5 [--window 7]
 import argparse, csv
 from datetime import datetime
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from statistics import median
 
 def num(s):
@@ -20,7 +21,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv")
     ap.add_argument("--metric",default="revenue"); ap.add_argument("--k",type=float,default=3.5); ap.add_argument("--window",type=int,default=7)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     dcol=next((h for h in rows[0] if h.lower() in ("date","날짜","일자","day")),None)
     s=sorted(((r[dcol].strip(),num(r.get(a.metric))) for r in rows),key=lambda x:x[0])
     days=[d for d,_ in s]; v=[x for _,x in s]; n=len(v)

@@ -8,6 +8,7 @@ Usage: python mmm.py data.csv --channels meta,google,naver --target revenue
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
@@ -31,7 +32,7 @@ def main():
     ap.add_argument("csv"); ap.add_argument("--channels",required=True); ap.add_argument("--target",default="revenue")
     a=ap.parse_args()
     chs=a.channels.split(",")
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     X=[]; y=[]
     for r in rows:
         X.append([1.0]+[num(r.get(c)) for c in chs]); y.append(num(r.get(a.target)))

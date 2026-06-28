@@ -7,6 +7,7 @@ Usage: python cluster_terms.py terms.csv
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict, Counter
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
@@ -17,7 +18,7 @@ def tokens(t):
     return [w for w in re.split(r"\s+", t.strip().lower()) if len(w)>=2 and w not in STOP]
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}; tc=list(rows[0])[0]
     sc,cc,vc,rc=h.get("spend"),h.get("clicks"),h.get("conversions"),h.get("revenue")
     df=Counter()

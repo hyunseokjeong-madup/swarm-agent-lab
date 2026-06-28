@@ -7,13 +7,14 @@ Usage: python chi_square.py table.csv
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").strip()
     try: return float(s)
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     cols=list(rows[0].keys()); rlab=cols[0]; ccols=cols[1:]
     M=[[num(r.get(c)) for c in ccols] for r in rows]; labels=[r.get(rlab) for r in rows]
     R=len(M); C=len(ccols)

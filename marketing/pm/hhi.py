@@ -7,6 +7,7 @@ Usage: python hhi.py data.csv --value spend
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리(IndexError 방지)
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
     try: return float(s)
@@ -14,7 +15,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--value",default=None)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     name=list(rows[0])[0]; vc=a.value or next((c for c in rows[0] if c.lower() in ("spend","revenue","value")),list(rows[0])[1])
     items=[((r.get(name) or "").strip(),num(r.get(vc))) for r in rows if not re.search(r"total|합계|총계",(r.get(name) or ""),re.I)]
     tot=sum(v for _,v in items) or 1

@@ -7,6 +7,7 @@ Usage: python account_health.py data.csv --target-roas 2.5
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -14,7 +15,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--target-roas",type=float,default=2.5)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}; name=list(rows[0])[0]
     ic,cc,sc,vc,rc=(h.get(k) for k in ("impressions","clicks","spend","conversions","revenue"))
     tot={k:0.0 for k in ("impr","clk","sp","cv","rv")}; spends=[]; dq_bad=0; nrows=0

@@ -1,6 +1,7 @@
 """소재 로테이션/리프레시. 노출 충분한데 CTR 낮은 소재 → 교체 후보. 신선도 우선순위 제시."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("%","").strip()
     try: return float(s)
@@ -9,7 +10,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("csv"); ap.add_argument("--min-impr",type=float,default=30000)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     name=list(rows[0])[0]
     def find(p): return next((c for c in rows[0] if re.fullmatch(p,c,re.I)),None)
     ic,cc=find("impressions|impr|노출"),find("clicks|클릭")

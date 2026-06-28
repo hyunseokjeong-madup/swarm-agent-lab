@@ -1,6 +1,7 @@
 """목표 CPA/ROAS 가드레일 체커. 엔티티별로 목표 위반을 경보."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -11,7 +12,7 @@ def main():
     ap.add_argument("--target-cpa",type=float,default=None)
     ap.add_argument("--target-roas",type=float,default=None)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     by=a.by or list(rows[0])[0]
     def find(p): return next((c for c in rows[0] if re.fullmatch(p,c,re.I)),None)
     sc,cc,rc=find("spend|cost|비용|광고비"),find("conversions|conv|전환"),find("revenue|매출|수익")

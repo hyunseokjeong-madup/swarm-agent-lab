@@ -8,10 +8,11 @@ Usage: python conversion_lag.py conv.csv
 import argparse, csv
 from datetime import datetime
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from statistics import median, mean
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     clc=h.get("click_date") or h.get("click"); cvc=h.get("conv_date") or h.get("conversion_date")
     lags=[]

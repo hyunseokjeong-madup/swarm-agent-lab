@@ -6,6 +6,7 @@ Usage: python cohort_heatmap.py cohorts.csv --out heatmap.html
 """
 import argparse, csv, html
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 def num(s):
     s=str(s or "").replace(",","").strip()
@@ -14,7 +15,7 @@ def num(s):
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); ap.add_argument("--out",default="cohort_heatmap.html")
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     cc=h.get("cohort") or list(rows[0])[0]; pc=h.get("period"); uc=h.get("active_users") or h.get("users")
     data=defaultdict(dict)

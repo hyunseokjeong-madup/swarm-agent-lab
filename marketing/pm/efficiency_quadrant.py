@@ -7,6 +7,7 @@ Usage: python efficiency_quadrant.py data.csv
 """
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from statistics import median
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
@@ -14,7 +15,7 @@ def num(s):
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     name=list(rows[0])[0]; h={c.lower():c for c in rows[0]}; sc,rc=h.get("spend"),h.get("revenue")
     ents=[]
     for r in rows:

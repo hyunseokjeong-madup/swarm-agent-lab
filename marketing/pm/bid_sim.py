@@ -7,6 +7,7 @@ Usage: python bid_sim.py landscape.csv --value 50000 --cvr 0.05
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").strip()
     try: return float(s)
@@ -15,7 +16,7 @@ def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv")
     ap.add_argument("--value",type=float,required=True,help="전환당 매출"); ap.add_argument("--cvr",type=float,required=True)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     best=None; out=[]
     print(f"\n=== BID SIMULATOR (value/conv={a.value:,.0f}, cvr={a.cvr:.1%}) ===")
     print("cpc".rjust(8)+"clicks".rjust(9)+"conv".rjust(8)+"revenue".rjust(13)+"cost".rjust(13)+"profit".rjust(13)+"roas".rjust(7))

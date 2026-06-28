@@ -1,6 +1,7 @@
 """예산 낭비 탐지. ROAS가 기준 미만인데 지출이 큰 엔티티 → 절감 후보."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").replace("%","").strip()
     try: return float(s)
@@ -9,7 +10,7 @@ def main():
     ap=argparse.ArgumentParser()
     ap.add_argument("csv"); ap.add_argument("--by",default=None); ap.add_argument("--min-roas",type=float,default=1.0)
     a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     by=a.by or list(rows[0])[0]
     def find(p): return next((c for c in rows[0] if re.fullmatch(p,c,re.I)),None)
     sc,rc=find("spend|cost|비용|광고비"),find("revenue|매출|수익")

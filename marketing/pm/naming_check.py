@@ -2,6 +2,7 @@
 (분석 시 차원 분해·정합성의 전제) CSV 첫 열 또는 --names 사용."""
 import argparse, csv, re
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 PAT=re.compile(r"^[A-Za-z0-9]+_[A-Za-z-]+_[A-Za-z0-9]+_[A-Za-z0-9]+_v\d+$")
 def main():
     ap=argparse.ArgumentParser()
@@ -10,7 +11,7 @@ def main():
     names=[]
     if a.names: names=[x.strip() for x in a.names.split(",")]
     elif a.csv:
-        rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+        rows=load_rows(a.csv)
         col=list(rows[0])[0]
         names=[(r.get(col) or "").strip() for r in rows if not re.search(r"total|합계|총계",(r.get(col) or ""),re.I)]
     bad=[n for n in names if not PAT.match(n)]

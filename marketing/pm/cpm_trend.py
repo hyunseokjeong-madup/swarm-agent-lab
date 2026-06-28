@@ -8,13 +8,14 @@ Usage: python cpm_trend.py daily.csv
 import argparse, csv
 from datetime import datetime
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
     try: return float(s)
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     dcol=next((h for h in rows[0] if h.lower() in ("date","날짜","일자","day")),None)
     h={c.lower():c for c in rows[0]}; ic=h.get("impressions") or h.get("impr"); spc=h.get("spend")
     s=[]

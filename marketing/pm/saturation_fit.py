@@ -7,13 +7,14 @@ Usage: python saturation_fit.py curve.csv
 """
 import argparse, csv
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 def num(s):
     s=str(s or "").replace(",","").strip()
     try: return float(s)
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}
     xc=h.get("spend") or h.get("cost"); yc=h.get("conversions") or h.get("conv") or h.get("revenue")
     xs=[]; ys=[]

@@ -8,6 +8,7 @@ Usage: python new_vs_returning.py tx.csv
 import argparse, csv
 from datetime import datetime
 from pathlib import Path
+from _pmutil import load_rows  # 빈 데이터 우아한 처리
 from collections import defaultdict
 def num(s):
     s=str(s or "").replace(",","").replace("₩","").strip()
@@ -15,7 +16,7 @@ def num(s):
     except: return 0.0
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument("csv"); a=ap.parse_args()
-    rows=list(csv.DictReader(Path(a.csv).read_text(encoding="utf-8").splitlines()))
+    rows=load_rows(a.csv)
     h={c.lower():c for c in rows[0]}; cid=h.get("customer_id") or list(rows[0])[0]; dc=h.get("date"); ac=h.get("amount") or h.get("revenue")
     tx=defaultdict(list)
     for r in rows: tx[r[cid].strip()].append((datetime.strptime(r.get(dc).strip(),"%Y-%m-%d"), num(r.get(ac))))

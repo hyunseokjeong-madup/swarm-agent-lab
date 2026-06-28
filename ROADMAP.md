@@ -14,7 +14,7 @@
 | 8 | **리포트 자동 생성기**(일/주/월) | ✅ | `marketing/report.py` — 검산 포함 성과 리포트 마크다운 |
 | 8b | **퍼마 일상 루틴 도구**(페이싱/퍼널/AB/재배분…) | 🚧 | `marketing/pm/*` — 100사이클 트래커 `CYCLES.md` |
 | 9 | **마케팅 추론 벤치 확대 + 함정** | ⬜ | 어트리뷰션/타임존/Simpson/베이즈 + 도구모드 100% |
-| 10 | **온보딩 + E2E 데모 + CI** | 🚧 | ✅계정 온보딩(`curate.py --onboard`) · ✅CI(`.github/workflows/ci.yml`, 95/95+29/29, py3.9/3.12) · ⬜E2E 시나리오 |
+| 10 | **온보딩 + E2E 데모 + CI** | ✅ | ✅계정 온보딩(`curate.py --onboard`) · ✅CI(`.github/workflows/ci.yml`, 95/95+29/29, py3.9/3.12) · ✅E2E 데모(`marketing/demo_e2e.py` 회상→검산→집계→삼중검증, `--selftest` 내장) |
 
 ## 운영 원칙
 - 동시 워크플로 1~2개(레이트리밋 회피) · 모든 산출물 코드검증 · 항목별 커밋·푸시.

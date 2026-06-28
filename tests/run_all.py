@@ -99,6 +99,8 @@ CHECKS = [
     ("sc: efficiency_quadrant",       ["python", "marketing/pm/efficiency_quadrant.py", "marketing/samples/sample_campaign.csv"], "EFFICIENCY QUADRANT"),
     ("sc: funnel_steps",              ["python", "marketing/pm/funnel_steps.py", "marketing/samples/sample_funnel.csv"], "FUNNEL"),
     ("sc: ttest",                     ["python", "marketing/pm/ttest.py", "--a-mean", "50000", "--a-sd", "12000", "--a-n", "200", "--b-mean", "54000", "--b-sd", "15000", "--b-n", "180"], "WELCH t-TEST"),
+    ("sc: anova",                     ["python", "marketing/pm/anova.py", "marketing/samples/sample_anova.csv"], "ONE-WAY ANOVA"),
+    ("sc: chi_square",                ["python", "marketing/pm/chi_square.py", "marketing/samples/sample_contingency.csv"], "CHI-SQUARE"),
 ]
 
 def run():

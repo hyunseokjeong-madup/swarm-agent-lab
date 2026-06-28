@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 72개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 74개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -8,6 +8,7 @@
 | `account_health.py` | 계정 헬스 스코어 — 캠페인 CSV에서 효율(ROAS/목표)·집중도(HHI)·데이터품질을 종합해 0~100 점수. |
 | `alert_digest.py` | 일일 알림 다이제스트. 한 CSV에서 가드레일 위반·낭비·상위성과를 한 번에 요약(아침 점검용). |
 | `anomaly_ts.py` | 시계열 이상탐지 — 추세(이동중앙값) + 요일계절 + 잔차(MAD) 분해. |
+| `anova.py` | 일원배치 ANOVA — 3개 이상 그룹 평균 차이의 유의성(F-검정). 예: 여러 변형의 지표 비교. |
 | `attribution_compare.py` | 어트리뷰션 비교. 두 전환 소스(예: 플랫폼 vs GA/내부)의 합계와 격차(%)를 대사. |
 | `attribution_mta.py` | 멀티터치 어트리뷰션(MTA) 엔진 — 경로(touchpoint) CSV에서 채널 기여를 5개 모델로 배분. |
 | `bid_sim.py` | 입찰 시뮬레이터 — 입찰 랜드스케이프(CPC→클릭량)에서 이익 최대 입찰 탐색. |
@@ -15,6 +16,7 @@
 | `budget_optimizer.py` | 예산 최적화 — 한계수익(marginal return) 기반 채널 배분. |
 | `budget_response_alloc.py` | 포화곡선 기반 예산배분 — 채널별 Hill 반응(y=Vmax·x/(K+x))에서 한계전환 균등화로 총전환 최대 배분. |
 | `channel_mix.py` | 채널 믹스 분석. 현재 지출 배분(%)과 ROAS를 비교해 과/저투자 채널을 식별. |
+| `chi_square.py` | 카이제곱 독립성 검정 — 분할표(예: 기기×전환)에서 두 범주변수의 연관성. chi²=Σ(O−E)²/E, |
 | `churn_score.py` | 이탈위험 스코어 — 최근성 대비 기대 구매주기로 위험 산출. |
 | `cluster_terms.py` | 검색어 클러스터링 — 공통 토큰으로 검색어를 묶고 클러스터별 성과 집계. |
 | `cohort.py` | 코호트 리텐션 + LTV 곡선. |

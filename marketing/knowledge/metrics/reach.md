@@ -1,3 +1,12 @@
+---
+title: "REACH 심화"
+category: metrics
+tags: [metrics, reach]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [aov, blended_roas, cac, contribution_margin, cpa]
+---
 # REACH 심화
 
 ## 정의/공식

@@ -1,3 +1,12 @@
+---
+title: "일시중지 결정"
+category: checklists
+tags: [checklists, pause, decision]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [audit, budget_review, creative_qa, launch, reconciliation]
+---
 # 일시중지 결정
 
 ## 항목

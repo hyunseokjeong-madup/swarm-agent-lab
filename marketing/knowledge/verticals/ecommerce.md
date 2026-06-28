@@ -1,3 +1,12 @@
+---
+title: "이커머스 버티컬 플레이북"
+category: verticals
+tags: [verticals, ecommerce]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [beauty, education, fashion, finance, food_delivery]
+---
 # 이커머스 버티컬 플레이북
 
 ## 핵심 KPI

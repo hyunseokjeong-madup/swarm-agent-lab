@@ -1,3 +1,12 @@
+---
+title: "AOV 심화"
+category: metrics
+tags: [metrics, aov]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [blended_roas, cac, contribution_margin, cpa, cpc]
+---
 # AOV 심화
 
 ## 정의/공식

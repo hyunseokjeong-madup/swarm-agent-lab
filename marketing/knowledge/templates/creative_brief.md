@@ -1,3 +1,12 @@
+---
+title: "소재 브리프 템플릿"
+category: templates
+tags: [templates, creative, brief]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [ab_test_plan, account_onboarding, daily_report, monthly_report, naming_convention]
+---
 # 소재 브리프 템플릿
 
 ## 항목

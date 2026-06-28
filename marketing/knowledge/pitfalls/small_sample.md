@@ -1,3 +1,12 @@
+---
+title: "소표본 과해석"
+category: pitfalls
+tags: [pitfalls, small, sample]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [attribution, bot_traffic, brand_cannibalization, currency, dedup]
+---
 # 소표본 과해석
 
 ## 점검

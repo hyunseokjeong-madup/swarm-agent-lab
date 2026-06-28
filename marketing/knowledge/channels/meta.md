@@ -5,7 +5,7 @@ tags: [channels, meta]
 verified: true
 status: stable
 last_updated: 2026-06-28
-related: []
+related: [apple_search, criteo, google, kakao, line]
 ---
 # Meta (Facebook/Instagram) 플레이북
 

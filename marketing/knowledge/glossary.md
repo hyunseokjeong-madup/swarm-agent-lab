@@ -5,7 +5,7 @@ tags: [knowledge, glossary]
 verified: true
 status: stable
 last_updated: 2026-06-28
-related: []
+related: [_GLOBAL, demo_ecommerce]
 ---
 # 마케팅 지표 용어집 (Glossary)
 

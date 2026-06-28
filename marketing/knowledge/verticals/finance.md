@@ -1,3 +1,12 @@
+---
+title: "금융 버티컬 플레이북"
+category: verticals
+tags: [verticals, finance]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [beauty, ecommerce, education, fashion, food_delivery]
+---
 # 금융 버티컬 플레이북
 
 ## 핵심 KPI

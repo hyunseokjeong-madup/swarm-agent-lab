@@ -1,3 +1,12 @@
+---
+title: "심슨 패러독스"
+category: pitfalls
+tags: [pitfalls, simpson]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [attribution, bot_traffic, brand_cannibalization, currency, dedup]
+---
 # 심슨 패러독스
 
 ## 점검

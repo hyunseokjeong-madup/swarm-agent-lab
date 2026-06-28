@@ -1,3 +1,12 @@
+---
+title: "Custom — audience"
+category: audience
+tags: [audience, custom]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [broad, exclusions, interest, lookalike, prospecting]
+---
 # Custom — audience
 
 - CRM/이벤트 기반 맞춤

@@ -5,7 +5,7 @@ tags: [channels, naver]
 verified: true
 status: stable
 last_updated: 2026-06-28
-related: []
+related: [apple_search, criteo, google, kakao, line]
 ---
 # Naver (네이버) 플레이북
 

@@ -1,3 +1,12 @@
+---
+title: "플레이어블 포맷 가이드"
+category: formats
+tags: [formats, playable]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [carousel, collection, display, native, search]
+---
 # 플레이어블 포맷 가이드
 
 ## 핵심

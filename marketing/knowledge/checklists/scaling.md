@@ -1,3 +1,12 @@
+---
+title: "스케일링"
+category: checklists
+tags: [checklists, scaling]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [audit, budget_review, creative_qa, launch, pause_decision]
+---
 # 스케일링
 
 ## 항목

@@ -1,3 +1,12 @@
+---
+title: "BLENDED_ROAS 심화"
+category: metrics
+tags: [metrics, blended, roas]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [aov, cac, contribution_margin, cpa, cpc]
+---
 # BLENDED_ROAS 심화
 
 ## 정의/공식

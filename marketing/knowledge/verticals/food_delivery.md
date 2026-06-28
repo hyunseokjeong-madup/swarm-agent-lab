@@ -1,3 +1,12 @@
+---
+title: "푸드/배달 버티컬 플레이북"
+category: verticals
+tags: [verticals, food, delivery]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [beauty, ecommerce, education, fashion, finance]
+---
 # 푸드/배달 버티컬 플레이북
 
 ## 핵심 KPI

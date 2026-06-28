@@ -1,3 +1,12 @@
+---
+title: "네이티브 포맷 가이드"
+category: formats
+tags: [formats, native]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [carousel, collection, display, playable, search]
+---
 # 네이티브 포맷 가이드
 
 ## 핵심

@@ -1,3 +1,12 @@
+---
+title: "계정 감사"
+category: checklists
+tags: [checklists, audit]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [budget_review, creative_qa, launch, pause_decision, reconciliation]
+---
 # 계정 감사
 
 ## 항목

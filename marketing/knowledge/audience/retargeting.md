@@ -1,3 +1,12 @@
+---
+title: "Retargeting — audience"
+category: audience
+tags: [audience, retargeting]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [broad, custom, exclusions, interest, lookalike]
+---
 # Retargeting — audience
 
 - 방문/장바구니/구매자 리타게팅

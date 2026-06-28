@@ -1,3 +1,12 @@
+---
+title: "일일 루틴"
+category: routines
+tags: [routines, daily]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [monthly, quarterly, weekly]
+---
 # 일일 루틴
 
 ## 체크리스트

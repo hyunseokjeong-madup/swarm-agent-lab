@@ -1,3 +1,12 @@
+---
+title: "모바일 앱 버티컬 플레이북"
+category: verticals
+tags: [verticals, mobile, app]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [beauty, ecommerce, education, fashion, finance]
+---
 # 모바일 앱 버티컬 플레이북
 
 ## 핵심 KPI

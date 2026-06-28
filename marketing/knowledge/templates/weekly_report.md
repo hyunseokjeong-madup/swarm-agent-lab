@@ -1,3 +1,12 @@
+---
+title: "주간 리포트 템플릿"
+category: templates
+tags: [templates, weekly, report]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [ab_test_plan, account_onboarding, creative_brief, daily_report, monthly_report]
+---
 # 주간 리포트 템플릿
 
 ## 항목

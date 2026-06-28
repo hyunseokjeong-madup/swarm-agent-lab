@@ -5,7 +5,7 @@ tags: [knowledge]
 verified: true
 status: stable
 last_updated: 2026-06-28
-related: []
+related: [demo_ecommerce, glossary]
 ---
 # _GLOBAL 놀리지에셋 (모든 계정 공통, 검산 통과분만 누적)
 

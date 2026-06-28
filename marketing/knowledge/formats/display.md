@@ -1,3 +1,12 @@
+---
+title: "디스플레이 포맷 가이드"
+category: formats
+tags: [formats, display]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [carousel, collection, native, playable, search]
+---
 # 디스플레이 포맷 가이드
 
 ## 핵심

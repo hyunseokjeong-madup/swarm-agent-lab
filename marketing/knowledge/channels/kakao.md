@@ -1,3 +1,12 @@
+---
+title: "Kakao(카카오) 플레이북"
+category: channels
+tags: [channels, kakao]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [apple_search, criteo, google, line, meta]
+---
 # Kakao(카카오) 플레이북
 
 ## 핵심

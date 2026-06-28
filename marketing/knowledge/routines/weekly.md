@@ -1,3 +1,12 @@
+---
+title: "주간 루틴"
+category: routines
+tags: [routines, weekly]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [daily, monthly, quarterly]
+---
 # 주간 루틴
 
 ## 체크리스트

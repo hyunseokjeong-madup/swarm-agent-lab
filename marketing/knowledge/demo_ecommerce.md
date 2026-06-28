@@ -5,7 +5,7 @@ tags: [knowledge, demo, ecommerce]
 verified: true
 status: stable
 last_updated: 2026-06-28
-related: []
+related: [_GLOBAL, glossary]
 ---
 # demo_ecommerce — 계정 놀리지에셋
 > vertical: ecommerce · 생성: 2026-06-28 · 검산 통과분만 누적(중복은 curate.upsert로 갱신).

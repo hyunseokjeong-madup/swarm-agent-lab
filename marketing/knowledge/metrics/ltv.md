@@ -1,3 +1,12 @@
+---
+title: "LTV 심화"
+category: metrics
+tags: [metrics, ltv]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [aov, blended_roas, cac, contribution_margin, cpa]
+---
 # LTV 심화
 
 ## 정의/공식

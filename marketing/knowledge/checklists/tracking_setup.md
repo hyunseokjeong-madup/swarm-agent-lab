@@ -1,3 +1,12 @@
+---
+title: "트래킹 설정"
+category: checklists
+tags: [checklists, tracking, setup]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [audit, budget_review, creative_qa, launch, pause_decision]
+---
 # 트래킹 설정
 
 ## 항목

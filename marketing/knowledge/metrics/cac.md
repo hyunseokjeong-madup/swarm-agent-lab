@@ -1,3 +1,12 @@
+---
+title: "CAC 심화"
+category: metrics
+tags: [metrics, cac]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [aov, blended_roas, contribution_margin, cpa, cpc]
+---
 # CAC 심화
 
 ## 정의/공식

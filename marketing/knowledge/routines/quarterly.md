@@ -1,3 +1,12 @@
+---
+title: "분기 루틴"
+category: routines
+tags: [routines, quarterly]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [daily, monthly, weekly]
+---
 # 분기 루틴
 
 ## 체크리스트

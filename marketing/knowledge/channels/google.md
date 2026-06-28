@@ -5,7 +5,7 @@ tags: [channels, google]
 verified: true
 status: stable
 last_updated: 2026-06-28
-related: []
+related: [apple_search, criteo, kakao, line, meta]
 ---
 # Google Ads 플레이북
 

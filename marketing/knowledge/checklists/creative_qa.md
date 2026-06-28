@@ -1,3 +1,12 @@
+---
+title: "소재 QA"
+category: checklists
+tags: [checklists, creative, qa]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [audit, budget_review, launch, pause_decision, reconciliation]
+---
 # 소재 QA
 
 ## 항목

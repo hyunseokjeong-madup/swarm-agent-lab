@@ -1,3 +1,12 @@
+---
+title: "중복/이중계산"
+category: pitfalls
+tags: [pitfalls, dedup]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [attribution, bot_traffic, brand_cannibalization, currency, ios_privacy]
+---
 # 중복/이중계산
 
 ## 점검

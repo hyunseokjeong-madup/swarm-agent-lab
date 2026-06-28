@@ -1,3 +1,12 @@
+---
+title: "뷰티 버티컬 플레이북"
+category: verticals
+tags: [verticals, beauty]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [ecommerce, education, fashion, finance, food_delivery]
+---
 # 뷰티 버티컬 플레이북
 
 ## 핵심 KPI

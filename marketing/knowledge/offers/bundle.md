@@ -1,3 +1,12 @@
+---
+title: "Bundle — offers"
+category: offers
+tags: [offers, bundle]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [bogo, discount, free_shipping, free_trial, gift]
+---
 # Bundle — offers
 
 - AOV↑

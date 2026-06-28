@@ -1,3 +1,12 @@
+---
+title: "YouTube 플레이북"
+category: channels
+tags: [channels, youtube]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [apple_search, criteo, google, kakao, line]
+---
 # YouTube 플레이북
 
 ## 핵심

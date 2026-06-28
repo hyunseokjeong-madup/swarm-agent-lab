@@ -1,3 +1,12 @@
+---
+title: "교육 버티컬 플레이북"
+category: verticals
+tags: [verticals, education]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [beauty, ecommerce, fashion, finance, food_delivery]
+---
 # 교육 버티컬 플레이북
 
 ## 핵심 KPI

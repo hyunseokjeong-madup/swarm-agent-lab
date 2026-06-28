@@ -1,3 +1,12 @@
+---
+title: "런칭 체크리스트"
+category: checklists
+tags: [checklists, launch]
+verified: true
+status: stable
+last_updated: 2026-06-28
+related: [audit, budget_review, creative_qa, pause_decision, reconciliation]
+---
 # 런칭 체크리스트
 
 ## 항목

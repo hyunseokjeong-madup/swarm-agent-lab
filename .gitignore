@@ -20,4 +20,10 @@ scratchpad/
 marketing/bench/dataset.csv
 marketing/bench/ground_truth.json
 
+# Tool-generated HTML output written to the working dir (dashboard.py / cohort_heatmap.py).
+# The intended demo versions live in docs/demo/ (committed); only ignore stray root-level ones.
+/*.html
+marketing/*.html
+marketing/pm/*.html
+
 # Keep results/ (reproducibility evidence) — do NOT ignore

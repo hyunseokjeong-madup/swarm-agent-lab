@@ -1,1 +1,6 @@
 * text=auto eol=lf
+
+# 추적되는 CSV(예: marketing/samples/*.csv, research/results/*.csv)는 텍스트로 정규화한다.
+# → LF 줄바꿈 + 일관된 diff 보장. (재생성 가능한 bench/dataset.csv 는 .gitignore 로 미추적.)
+# 데이터 추적 결정의 근거는 DATA.md 및 MODULES.md 참고.
+*.csv text

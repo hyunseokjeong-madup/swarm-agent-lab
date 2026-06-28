@@ -1,0 +1,39 @@
+# MADOBI — 마케팅 특화 AI 에이전트
+#
+# 핵심 불변식(invariant): 코어는 파이썬 STDLIB ONLY.
+#   reconcile / summarize / bench / pm 78개 도구 / 검증 로직은 전부 표준 라이브러리만 쓴다.
+#   → `pip install madobi` 만으로 외부 의존성 0개로 "clone & run" 이 성립한다.
+#
+# 외부 의존성은 전부 OPT-IN extras 로 격리한다 (아래 [project.optional-dependencies]).
+# duckdb / sentence-transformers 가 없어도 코어는 import 되고 정상 degrade 한다.
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "madobi"
+version = "0.1.0"
+description = "마케팅 특화 AI 에이전트 — 산술은 코드(stdlib)가 보장하고, 통찰은 LLM이 판단한다."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "Madup — Swarm Agent Lab" }]
+keywords = ["marketing", "analytics", "agent", "reconciliation", "stdlib"]
+
+# 코어는 의존성이 없다. 이 줄을 비우는 것이 madobi 의 설계 약속이다. (채우지 말 것)
+dependencies = []
+
+[project.optional-dependencies]
+# OPT-IN: 대용량 컬럼형 집계 가속용. 없으면 코어는 stdlib csv/sqlite3 경로로 동작한다.
+duckdb = ["duckdb>=1.0"]
+# OPT-IN: 놀리지에셋 시맨틱 검색(임베딩) 강화용. 없으면 키워드/BM25 경로로 동작한다.
+rag = ["sentence-transformers"]
+
+[project.urls]
+Homepage = "https://github.com/madup/madobi"
+
+[tool.setuptools]
+# 물리적 패키지 분리 없이 단일 레포로 배포한다 (이유: MODULES.md 참고).
+# 에이전트가 .claude/ 와 marketing/ 를 함께 자동 로드하므로 분리하면 'clone & run' UX 가 깨진다.
+packages = ["marketing", "marketing.pm", "marketing.bench"]

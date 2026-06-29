@@ -114,6 +114,8 @@ CHECKS = [
     ("mem: link_related selftest",    ["python", "marketing/knowledge/link_related.py", "--selftest"], "[selftest] OK"),
     ("loop: demo_e2e selftest",       ["python", "marketing/demo_e2e.py", "--selftest"], "[selftest] OK"),
     ("rl: bandit_policy selftest",    ["python", "marketing/pm/bandit_policy.py", "--selftest"], "self-test: PASS"),
+    ("mem: knowledge graph viz",      ["python", "marketing/knowledge/viz.py", "--selftest"], "self-test: PASS"),
+    ("loop: feedback report",         ["python", "marketing/loop_report.py", "--selftest"], "self-test: PASS"),
 ]
 
 def run():

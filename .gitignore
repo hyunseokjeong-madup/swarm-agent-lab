@@ -20,6 +20,9 @@ scratchpad/
 marketing/bench/dataset.csv
 marketing/bench/ground_truth.json
 
+# FTS5 search index — regenerable via `python marketing/knowledge/search.py --build`.
+marketing/knowledge/.index.db
+
 # Tool-generated HTML output written to the working dir (dashboard.py / cohort_heatmap.py).
 # The intended demo versions live in docs/demo/ (committed); only ignore stray root-level ones.
 /*.html

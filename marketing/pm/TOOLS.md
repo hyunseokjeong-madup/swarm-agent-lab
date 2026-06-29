@@ -1,6 +1,6 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 79개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 80개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
@@ -12,6 +12,7 @@
 | `anova.py` | 일원배치 ANOVA — 3개 이상 그룹 평균 차이의 유의성(F-검정). 예: 여러 변형의 지표 비교. |
 | `attribution_compare.py` | 어트리뷰션 비교. 두 전환 소스(예: 플랫폼 vs GA/내부)의 합계와 격차(%)를 대사. |
 | `attribution_mta.py` | 멀티터치 어트리뷰션(MTA) 엔진 — 경로(touchpoint) CSV에서 채널 기여를 5개 모델로 배분. |
+| `bandit_policy.py` | 경량 정책선택(multi-armed bandit) — 어떤 arm(채널/소재/카테고리)에 다음 노출을 |
 | `bid_sim.py` | 입찰 시뮬레이터 — 입찰 랜드스케이프(CPC→클릭량)에서 이익 최대 입찰 탐색. |
 | `brand_split.py` | 브랜드 vs 논브랜드 분리 — 검색어를 브랜드 키워드 포함 여부로 분류해 성과 분해. |
 | `budget_optimizer.py` | 예산 최적화 — 한계수익(marginal return) 기반 채널 배분. |

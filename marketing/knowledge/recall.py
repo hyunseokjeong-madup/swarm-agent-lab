@@ -60,6 +60,9 @@ def _try_index_search(query, category, limit):
     db = getattr(mod, "DB_PATH", None)
     if db is not None and not Path(db).exists():
         return None
+    # 손상 색인은 '매치 0건'이 아니라 폴백 신호 → grep 으로 내려간다.
+    # (search.IndexCorrupt 가 그 신호. 자동 재빌드는 하지 않는다 — 비결정.)
+    corrupt = getattr(mod, "IndexCorrupt", None)
     try:
         raw = fn(query, category=category, limit=limit)
     except TypeError:
@@ -67,8 +70,10 @@ def _try_index_search(query, category, limit):
             raw = fn(query)
         except Exception:
             return None
-    except Exception:
-        return None
+    except Exception as e:
+        if corrupt is not None and isinstance(e, corrupt):
+            return None  # 색인 손상 → grep 폴백
+        return None      # 그 외 예외도 안전하게 폴백 (회상은 절대 죽지 않는다)
     if raw is None:
         return None
     hits = []
@@ -299,6 +304,24 @@ def _selftest():
     grep_hits = _grep("ROAS", None, 3)
     assert grep_hits, "grep 폴백이 ROAS를 못 찾음"
     assert all("marketing/knowledge/" in h["path"] for h in grep_hits), "grep 경로 형식 오류"
+
+    # 3) 손상 색인 → grep 폴백: '매치 0건'으로 위장되지 않고 폴백을 타는지.
+    #    실제 .index.db 를 건드리지 않도록 백업→손상주입→복원으로 격리한다.
+    mod = _import_search()
+    db = Path(getattr(mod, "DB_PATH")) if mod and getattr(mod, "DB_PATH", None) else None
+    if db is not None:
+        backup = db.read_bytes() if db.exists() else None
+        try:
+            db.write_bytes(b"not a sqlite database -- deliberately corrupt\n")
+            corrupt_out = recall(query="ROAS", limit=3)
+            assert "ROAS" in corrupt_out.upper(), "손상 색인에서 grep 폴백 실패"
+            assert "source=grep 폴백" in corrupt_out, "손상인데 색인 경로로 오인(폴백 미작동)"
+        finally:
+            if backup is not None:
+                db.write_bytes(backup)        # 원래 인덱스 복원
+            elif db.exists():
+                db.unlink()                   # 원래 없었으면 정리
+        print("[selftest] 손상 색인 → grep 폴백 확인 OK")
 
     print(out)
     print(f"\n[selftest] OK — 색인 경로 + grep 폴백(직접 {len(grep_hits)}건) 모두 ROAS 회상 성공")

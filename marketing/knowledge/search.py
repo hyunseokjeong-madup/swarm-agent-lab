@@ -129,10 +129,25 @@ def _fts_query(query: str) -> str:
     return " OR ".join(f'"{t}"' for t in toks)
 
 
+class IndexCorrupt(RuntimeError):
+    """색인 DB가 손상/스키마 부재 — '매치 0건'과 구별되는 신호.
+
+    호출자(recall.py)가 이 예외를 잡아 결정론적 grep 폴백으로 내려가게 한다.
+    여기서 자동 재빌드하지 않는다(부작용·비결정 → '같은 입력 같은 출력' 위반).
+    """
+
+
+# 구조적 손상의 징후 — 사용자 쿼리 문법오류와 구별한다.
+_CORRUPT_HINTS = ("malformed", "no such table", "database disk image",
+                  "file is not a database", "no such module")
+
+
 def search(query: str, category: str = None, limit: int = 5):
     """FTS5 MATCH + bm25 랭킹. 반환: [{path, title, category, snippet}].
 
     인덱스 없거나 FTS5 미지원이면 빈 리스트 반환(graceful).
+    색인이 '손상'된 경우엔 빈 리스트로 위장하지 않고 IndexCorrupt 를 올린다 —
+    그래야 recall.py 가 '0건'으로 착각하지 않고 grep 폴백을 탄다.
     """
     if not DB_PATH.exists() or not fts5_available():
         return []
@@ -156,10 +171,21 @@ def search(query: str, category: str = None, limit: int = 5):
             {"path": p, "title": t, "category": c, "snippet": s}
             for (p, t, c, s, _r) in cur.fetchall()
         ]
-    except sqlite3.OperationalError:
+    except sqlite3.OperationalError as e:
+        # 손상이면 폴백 신호로 승격, 그 외(쿼리 문법 등)는 기존대로 '매치 0'.
+        if any(h in str(e).lower() for h in _CORRUPT_HINTS):
+            con.close()
+            raise IndexCorrupt(str(e)) from e
         out = []
-    finally:
+    except sqlite3.DatabaseError as e:
+        # 디스크 이미지 손상은 DatabaseError 로도 올라온다.
         con.close()
+        raise IndexCorrupt(str(e)) from e
+    finally:
+        try:
+            con.close()
+        except sqlite3.ProgrammingError:
+            pass  # 이미 닫힘 (위 raise 경로)
     return out
 
 

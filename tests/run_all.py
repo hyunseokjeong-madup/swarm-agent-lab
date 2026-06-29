@@ -113,6 +113,7 @@ CHECKS = [
     ("mem: add_frontmatter selftest", ["python", "marketing/knowledge/add_frontmatter.py", "--selftest"], "[selftest] OK"),
     ("mem: link_related selftest",    ["python", "marketing/knowledge/link_related.py", "--selftest"], "[selftest] OK"),
     ("loop: demo_e2e selftest",       ["python", "marketing/demo_e2e.py", "--selftest"], "[selftest] OK"),
+    ("rl: bandit_policy selftest",    ["python", "marketing/pm/bandit_policy.py", "--selftest"], "self-test: PASS"),
 ]
 
 def run():

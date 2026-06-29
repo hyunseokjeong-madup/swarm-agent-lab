@@ -81,7 +81,7 @@ def build(out_dir):
     for rel, text in records:
         target = out / rel
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_text(text, encoding="utf-8", newline="\n")
+        target.write_text(text, encoding="utf-8")
         count += 1
     return count
 

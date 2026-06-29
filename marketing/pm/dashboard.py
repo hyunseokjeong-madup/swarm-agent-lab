@@ -46,6 +46,6 @@ table{{width:100%;border-collapse:collapse}} th,td{{padding:8px;border-bottom:1p
 <div class=cards>{cards}</div>
 <table><tr><th>{html.escape(by)}</th><th class=n>spend</th><th class=n>revenue</th><th class=n>ROAS</th></tr>{rowshtml}</table>
 <p style="color:#9fb0d9;font-size:12px">* 수치는 원자료 재계산(가중). reconcile로 검산.</p>"""
-    Path(a.out).write_text(doc,encoding="utf-8",newline="\n")
+    Path(a.out).write_text(doc,encoding="utf-8")
     print(f"=== DASHBOARD ===\nwrote {a.out} ({len(g)} rows, ROAS {roas:.2f}x)")
 if __name__=="__main__": main()

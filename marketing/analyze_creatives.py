@@ -123,7 +123,7 @@ def main():
             cpa_s = f"{m['cpa']:,.0f}" if m.get("cpa") is not None else "-"
             L.append(f"| {i} | {label} | {m[kpi]:.3g} | {m.get('impressions',0):,.0f} | "
                      f"{m.get('ctr',0):.2%} | {cpa_s} | {m.get('roas',0):.2f}x | {tag} |")
-        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8", newline="\n")
+        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8")
         print(f"\n[md] -> {a.md}")
 
 if __name__ == "__main__":

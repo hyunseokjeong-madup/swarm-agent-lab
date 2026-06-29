@@ -34,4 +34,4 @@ def write_md(path: Path, body: str):
         body_no_lead = body.lstrip("\n")
         if not body_no_lead.startswith("---"):
             body = fm + body_no_lead
-    path.write_text(body, encoding="utf-8", newline="\n")
+    path.write_text(body, encoding="utf-8")

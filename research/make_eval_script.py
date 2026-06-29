@@ -91,7 +91,7 @@ def main():
           .replace("__DESIGNS__", designs_js)
           .replace("__PROBLEMS__", problems_js)
           .replace("__TRIALS__", str(a.trials)))
-    Path(a.out).write_text(js, encoding="utf-8", newline="\n")  # LF only: Windows text-mode \r\n trips the permission hook
+    Path(a.out).write_text(js, encoding="utf-8")  # LF only: Windows text-mode \r\n trips the permission hook
     print(f"wrote {a.out}: {len(designs)} designs x {len(problems)} problems x {a.trials} trials "
           f"= {len(designs)*len(problems)*a.trials} nodes")
 

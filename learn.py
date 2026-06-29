@@ -37,7 +37,7 @@ def _curate():
 def append(path: Path, text: str):
     path.parent.mkdir(parents=True, exist_ok=True)
     prev = path.read_text(encoding="utf-8") if path.exists() else ""
-    path.write_text(prev + text, encoding="utf-8", newline="\n")
+    path.write_text(prev + text, encoding="utf-8")
 
 def main():
     ap = argparse.ArgumentParser()

@@ -68,7 +68,7 @@ def main():
 
     g = build_graph()
     if a.out:
-        Path(a.out).write_text(json.dumps(g, ensure_ascii=False, indent=2), encoding="utf-8", newline="\n")
+        Path(a.out).write_text(json.dumps(g, ensure_ascii=False, indent=2), encoding="utf-8")
         print(f"GRAPH JSON → {a.out}  (노드 {g['stats']['node_count']} · 에지 {g['stats']['edge_count']})")
     elif a.json:
         print(json.dumps(g, ensure_ascii=False, indent=2))

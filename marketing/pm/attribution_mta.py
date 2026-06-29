@@ -72,6 +72,6 @@ def main():
         L=[f"# MTA — `{Path(a.csv).name}` ({len(paths)} paths, half-life {a.half_life})","",
            "| channel | "+" | ".join(models)+" |","|"+"---|"*(len(models)+1)]
         for c in chans: L.append("| "+c+" | "+" | ".join(f"{out[m][c]:,.0f}" for m in models)+" |")
-        Path(a.md).write_text("\n".join(L)+"\n",encoding="utf-8",newline="\n"); print(f"[md] -> {a.md}")
+        Path(a.md).write_text("\n".join(L)+"\n",encoding="utf-8"); print(f"[md] -> {a.md}")
 
 if __name__=="__main__": main()

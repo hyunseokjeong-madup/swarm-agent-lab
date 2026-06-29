@@ -65,7 +65,7 @@ def upsert_lesson(target_md_path, tag: str, feedback: str) -> str:
             # 이미 있음 → 날짜만 갱신. 태그/본문은 보존(원래 교훈 그대로).
             lines[i] = f"- [{ts} 재검증] ({m.group('tag')}) {m.group('body')}"
             new_text = "\n".join(lines)
-            path.write_text(new_text, encoding="utf-8", newline="\n")
+            path.write_text(new_text, encoding="utf-8")
             return "updated"
 
     # 신규 → append (learn.py 포맷, 파일 끝에 개행 보장)
@@ -73,7 +73,7 @@ def upsert_lesson(target_md_path, tag: str, feedback: str) -> str:
     prev = text
     if prev and not prev.endswith("\n"):
         prev += "\n"
-    path.write_text(prev + entry, encoding="utf-8", newline="\n")
+    path.write_text(prev + entry, encoding="utf-8")
     return "appended"
 
 
@@ -121,10 +121,10 @@ def onboard_account(account: str, vertical: str, baseline: str):
     ctx = dict(account=account, vertical=vertical, baseline=baseline.strip(), date=date)
 
     if not kpath.exists():
-        kpath.write_text(_KNOWLEDGE_TPL.format(**ctx), encoding="utf-8", newline="\n")
+        kpath.write_text(_KNOWLEDGE_TPL.format(**ctx), encoding="utf-8")
         created.append(kpath)
     if not lpath.exists():
-        lpath.write_text(_LOG_TPL.format(**ctx), encoding="utf-8", newline="\n")
+        lpath.write_text(_LOG_TPL.format(**ctx), encoding="utf-8")
         created.append(lpath)
     return created
 

@@ -61,5 +61,5 @@ def main():
         for co in sorted(data):
             base=data[co].get(0,0)
             L.append("| "+co+" | "+" | ".join((f"{data[co][p]/base*100:.0f}%" if (p in data[co] and base) else "-") for p in periods)+" |")
-        Path(a.md).write_text("\n".join(L)+"\n",encoding="utf-8",newline="\n")
+        Path(a.md).write_text("\n".join(L)+"\n",encoding="utf-8")
 if __name__=="__main__": main()

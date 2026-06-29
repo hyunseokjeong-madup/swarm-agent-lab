@@ -69,7 +69,7 @@ def main():
               f"  {(m['ctr'] or 0):.2%}  {(m['roas'] or 0):.2f}x")
 
     if a.json:
-        Path(a.json).write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8", newline="\n")
+        Path(a.json).write_text(json.dumps(out, ensure_ascii=False), encoding="utf-8")
     if a.md:
         L = [f"# Summary by `{a.by}` ({len(out)} groups)", "",
              "| group | impressions | clicks | spend | conv | revenue | CTR | CPA | ROAS |",
@@ -78,7 +78,7 @@ def main():
             cpa = f"{m['cpa']:,.0f}" if m.get("cpa") else "-"
             L.append(f"| {k} | {m['impressions']:,} | {m['clicks']:,} | {m['spend']:,} | "
                      f"{m['conversions']:,} | {m['revenue']:,} | {(m['ctr'] or 0):.2%} | {cpa} | {(m['roas'] or 0):.2f}x |")
-        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8", newline="\n")
+        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8")
     return out
 
 if __name__ == "__main__":

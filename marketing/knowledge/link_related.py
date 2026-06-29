@@ -85,7 +85,7 @@ def run(apply=False, quiet=False):
             if ok and new_text != text:
                 changed += 1
                 if apply:
-                    p.write_text(new_text, encoding="utf-8", newline="\n")
+                    p.write_text(new_text, encoding="utf-8")
     mode = "APPLY" if apply else "DRY-RUN"
     if not quiet:
         print(f"[{mode}] md {total}개 | related 링크 채움 {changed}개 | 카테고리 {len(by_cat)}개")

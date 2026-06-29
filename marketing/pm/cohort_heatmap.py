@@ -41,6 +41,6 @@ table{{border-collapse:collapse}} td,th{{padding:8px 12px;text-align:center;font
 <h1>🧠 MADOBI — 코호트 리텐션 히트맵</h1>
 <table><tr><th>cohort</th>{hdr}</tr>{cells}</table>
 <p style="color:#9fb0d9;font-size:12px">* 잔존율 = period N 활성 / period 0 활성(원자료 계산).</p>"""
-    Path(a.out).write_text(doc,encoding="utf-8",newline="\n")
+    Path(a.out).write_text(doc,encoding="utf-8")
     print(f"=== COHORT HEATMAP ===\nwrote {a.out} ({len(data)} cohorts × {len(periods)} periods)")
 if __name__=="__main__": main()

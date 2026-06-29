@@ -84,7 +84,7 @@ def main():
             L.append(f"- pacing: {pacing[1]:.1%} of budget ({pacing[0]:,.0f} / {a.budget:,.0f})")
         L += ["", f"**anomalies (|z|≥{a.z}): {len(anomalies)}**"]
         L += [f"- ⚠️ {d}: {v:,.0f} (z={z:+.1f})" for d, v, z in anomalies] or ["- none"]
-        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8", newline="\n")
+        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8")
         print(f"\n[md] -> {a.md}")
 
 if __name__ == "__main__":

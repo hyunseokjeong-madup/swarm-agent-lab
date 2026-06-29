@@ -147,7 +147,7 @@ def main():
             lines += [f"- ⚠️ {w[2:]}" for w in warns]
         else:
             lines += ["- ✅ all consistency checks passed"]
-        Path(a.md).write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+        Path(a.md).write_text("\n".join(lines) + "\n", encoding="utf-8")
         print(f"\n[md] report written -> {a.md}")
 
 if __name__ == "__main__":

@@ -35,6 +35,6 @@ def main():
     L+=["", "## 🏆 상위 성과(ROAS)"]
     L+=[f"- {e[0]}: ROAS {e[4]:.2f}x" for e in top]
     text="\n".join(L)
-    if a.md: Path(a.md).write_text(text+"\n",encoding="utf-8",newline="\n"); print(f"[md] -> {a.md}")
+    if a.md: Path(a.md).write_text(text+"\n",encoding="utf-8"); print(f"[md] -> {a.md}")
     print("\n=== DAILY DIGEST ===\n"+text)
 if __name__=="__main__": main()

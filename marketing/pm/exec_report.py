@@ -48,6 +48,6 @@ def main():
        f"- {'목표 미달 → 저효율 채널 소재/타깃 개선·예산 재배분' if roas<a.target_roas else '목표 달성 → 승자 점진 증액(학습 보존)'}",
        "*숫자는 원자료 재계산·검산. 가정(윈도우·타임존·통화) 확인.*"]
     text="\n".join(x for x in L if x is not None)
-    if a.md: Path(a.md).write_text(text+"\n",encoding="utf-8",newline="\n"); print(f"[md] -> {a.md}")
+    if a.md: Path(a.md).write_text(text+"\n",encoding="utf-8"); print(f"[md] -> {a.md}")
     print("\n=== EXEC REPORT ===\n"+text)
 if __name__=="__main__": main()

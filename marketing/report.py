@@ -91,7 +91,7 @@ def main():
     out += ["---", "*숫자는 원자료에서 재계산·검산. 가정(윈도우·타임존·통화·필터) 확인 필요.*"]
     text = "\n".join(out)
     if a.md:
-        Path(a.md).write_text(text + "\n", encoding="utf-8", newline="\n")
+        Path(a.md).write_text(text + "\n", encoding="utf-8")
         print(f"[md] -> {a.md}")
     else:
         print(text)

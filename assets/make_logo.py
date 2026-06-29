@@ -68,5 +68,5 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}
 </svg>
 '''
 out=Path(__file__).parent/"logo.svg"
-out.write_text(svg,encoding="utf-8",newline="\n")
+out.write_text(svg,encoding="utf-8")
 print("wrote",out,f"({W}x{H})")

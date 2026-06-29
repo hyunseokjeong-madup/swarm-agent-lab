@@ -26,6 +26,6 @@ def main():
          "| 도구 | 설명 |","|------|------|"]
     for name,doc in rows:
         out.append(f"| `{name}` | {doc} |")
-    (HERE/"TOOLS.md").write_text("\n".join(out)+"\n",encoding="utf-8",newline="\n")
+    (HERE/"TOOLS.md").write_text("\n".join(out)+"\n",encoding="utf-8")
     print(f"TOOLS index: {len(rows)} tools -> marketing/pm/TOOLS.md")
 if __name__=="__main__": main()

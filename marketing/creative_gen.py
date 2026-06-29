@@ -67,7 +67,7 @@ def main():
         for c in concepts:
             L.append(f"| `{c['name']}` | {c['angle']} | {c['hook']} | {c['format']} | {c['headline']} | {c['cta']} |")
         L += ["", "**QA**: 1변수 격리 · 규격/금칙어/클레임 근거 · 메시지매치 · 수치 검산(reconcile)."]
-        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8", newline="\n")
+        Path(a.md).write_text("\n".join(L) + "\n", encoding="utf-8")
         print(f"\n[md] -> {a.md}")
 
 if __name__ == "__main__":

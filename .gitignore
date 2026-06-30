@@ -30,3 +30,6 @@ marketing/*.html
 marketing/pm/*.html
 
 # Keep results/ (reproducibility evidence) — do NOT ignore
+
+# pytest cache (madobi 는 stdlib run_all.py 를 쓰지만, 누가 pytest 돌리면 생긴다)
+.pytest_cache/

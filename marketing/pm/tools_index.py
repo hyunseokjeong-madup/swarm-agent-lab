@@ -19,7 +19,10 @@ def main():
     rows=[]
     for f in files:
         name=Path(f).name
-        if name in ("tools_index.py",): pass
+        # 언더스코어 헬퍼(_pmutil 등)와 생성기 자신은 'CLI 의사결정 도구'가 아님 → 제외.
+        # (예전엔 `pass` 라 제외가 안 돼 _pmutil/자기자신이 도구 수에 잡혔다.)
+        if name.startswith("_") or name == "tools_index.py":
+            continue
         rows.append((name, first_doc_line(f)))
     out=["# marketing/pm — 도구 인덱스 (자동 생성)","",
          f"총 {len(rows)}개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).","",

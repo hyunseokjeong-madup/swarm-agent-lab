@@ -1,10 +1,9 @@
 # marketing/pm — 도구 인덱스 (자동 생성)
 
-총 80개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
+총 78개 도구. `python tools_index.py`로 갱신. 모든 계산은 코드 검산(수치 안 틀림).
 
 | 도구 | 설명 |
 |------|------|
-| `_pmutil.py` | pm 도구 공통 유틸 — 빈 데이터 우아한 처리(IndexError 방지). |
 | `abtest.py` | A/B 테스트 유의성 (two-proportion z-test). 전환율 A vs B가 통계적으로 유의한가. |
 | `account_health.py` | 계정 헬스 스코어 — 캠페인 CSV에서 효율(ROAS/목표)·집중도(HHI)·데이터품질을 종합해 0~100 점수. |
 | `alert_digest.py` | 일일 알림 다이제스트. 한 CSV에서 가드레일 위반·낭비·상위성과를 한 번에 요약(아침 점검용). |
@@ -79,7 +78,6 @@
 | `shapley_attribution.py` | Shapley 값 데이터기반 어트리뷰션 — 채널 조합(coalition) 기여를 Shapley 값으로 공정 배분. |
 | `srm_check.py` | SRM(표본비율 불일치) 점검 — A/B 트래픽 배분이 기대비율(기본 50/50)에서 유의하게 벗어났는지 카이제곱 검정. |
 | `target_setter.py` | 목표 역산(goal-seek) — 목표 ROAS/CPA 달성에 필요한 입력값 역산. |
-| `tools_index.py` | 도구 인덱스 생성기 — marketing/pm/*.py 의 모듈 도크스트링 첫 줄을 모아 TOOLS.md 자동 생성. |
 | `ttest.py` | Welch t-검정 — 두 그룹 평균 차이의 유의성(분산 다름 허용). 예: 세그먼트별 AOV 비교. |
 | `waste.py` | 예산 낭비 탐지. ROAS가 기준 미만인데 지출이 큰 엔티티 → 절감 후보. |
 | `weekly_rollup.py` | 주간 롤업 — 일별 CSV를 ISO 주 단위로 집계하고 WoW(주간대비) 증감 산출. 가중지표 정확. |

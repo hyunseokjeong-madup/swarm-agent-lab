@@ -33,18 +33,58 @@ def step(title):
     print(f"\n{'─' * 56}\n▶ {title}\n{'─' * 56}")
 
 
+# prefetch 할 후보 카테고리 — 마케팅 분석에서 가장 자주 회상하는 지식 영역.
+_PREFETCH_ARMS = ["metrics", "diagnostics", "budget_models", "creative", "audience"]
+
+
+def _bandit_prefetch_category(query):
+    """후보 카테고리별 recall_quality(코드산물 보상)로 UCB1 이 prefetch arm 을 고른다.
+
+    부품(recall.recall_quality + bandit_policy.select_ucb1)을 실제로 잇는 시너지 조립.
+    각 arm 을 한 번씩 관측(pulls=1)했다 보고 reward=회상품질로 점수화 → 결정론적 선택.
+    import/계산 실패 시 None → 회상은 카테고리 없이도 정상 동작(우아한 폴백).
+    """
+    try:
+        kdir = MARKETING / "knowledge"
+        if str(kdir) not in sys.path:
+            sys.path.insert(0, str(kdir))
+        if str(MARKETING / "pm") not in sys.path:
+            sys.path.insert(0, str(MARKETING / "pm"))
+        import recall
+        import bandit_policy
+        arms = []
+        for cat in _PREFETCH_ARMS:
+            q = recall.recall_quality(query=query, category=cat, limit=3)
+            arms.append((cat, q, 1))   # reward_sum=품질, pulls=1 (각 1회 관측)
+        if not arms:
+            return None
+        choice, _scored = bandit_policy.select_ucb1(arms)
+        return choice
+    except Exception:
+        return None
+
+
 def demo(csv_path, account=None, quiet=False):
     """전체 E2E 흐름. 각 단계의 핵심 출력을 모아 dict로 반환(셀프테스트용)."""
     csv_path = Path(csv_path)
     out = {"csv": str(csv_path), "steps": {}}
 
-    # 1) 맥락 회상 (계정 지정 시) — 검색 기반, 214개 전체 read 금지
+    # 1) 맥락 회상 (계정 지정 시) — 검색 기반, 214개 전체 read 금지.
+    #    어느 카테고리를 먼저 prefetch 할지는 bandit(UCB1)이 *회상 품질 보상*으로 고른다:
+    #    recall_quality(코드 산물) → bandit arm 선택 → 그 카테고리로 회상. '돌수록 똑똑'의 실전.
     if account:
         if not quiet:
-            step(f"1. 맥락 회상 — recall.py (account={account})")
-        rc, o = run(["marketing/knowledge/recall.py", "--account", account, "--query", "ROAS CPA", "--limit", "3"])
+            step(f"1. 맥락 회상 — bandit(UCB1)이 회상품질로 prefetch 카테고리 선택 → recall.py (account={account})")
+        picked = _bandit_prefetch_category("ROAS CPA")
+        out["steps"]["prefetch_category"] = picked
+        cmd = ["marketing/knowledge/recall.py", "--account", account, "--query", "ROAS CPA", "--limit", "3"]
+        if picked:
+            cmd += ["--category", picked]
+        rc, o = run(cmd)
         out["steps"]["recall"] = rc
         if not quiet:
+            if picked:
+                print(f"  → bandit 선택 prefetch 카테고리: **{picked}** (UCB1 · 보상=recall_quality, 코드산물)")
             print(o.strip()[:600] or "(회상 결과 없음)")
 
     # 2) 검산 — reconcile.py: 보고값 vs 원자료 불일치 적발
@@ -125,6 +165,11 @@ def selftest():
     assert s.get("reconcile_verdict") == "INCONSISTENCY", "reconcile이 알려진 불일치를 놓침"
     assert s.get("summarize_rc") == 0, "summarize 실행 실패"
     assert s.get("sql_query_rc") == 0, "sql_query 실행 실패"
+    # 시너지 조립: bandit 이 회상품질 보상으로 prefetch 카테고리를 골랐는지 + 결정론
+    picked = s.get("prefetch_category")
+    assert picked in _PREFETCH_ARMS, f"bandit prefetch 선택 실패: {picked}"
+    assert _bandit_prefetch_category("ROAS CPA") == picked, "prefetch 선택 비결정적"
+    print(f"[selftest] 시너지 OK — bandit prefetch 카테고리='{picked}' (회상품질 보상·결정론)")
     _loop_roundtrip()
     print("[selftest] OK — E2E 흐름 정상 + 알려진 불일치 적발(reconcile=INCONSISTENCY)")
     return 0
